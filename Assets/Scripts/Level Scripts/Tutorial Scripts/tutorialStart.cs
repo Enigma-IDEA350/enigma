@@ -20,7 +20,7 @@ public class tutorialStart : MonoBehaviour
     void Update()
     {
         if (chatBubble) utils.showChatBubble();
-        else if (unChatBubble) utils.hideChatBubble();
+        else if (unChatBubble) utils.HideChatBubble();
     }
 
     public void tutorialInit(string[] initText, List<string[]> listOfMessages, int level)
@@ -49,7 +49,7 @@ public class tutorialStart : MonoBehaviour
     void StartGameplay()
     {
         hideChatBubble();
-        utils.setBackgroundActive(true);
+        utils.SetBackgroundActive(true);
 
     }
     void setDependencies()
@@ -65,7 +65,7 @@ public class tutorialStart : MonoBehaviour
     void fadeinTutorial()
     {
         tutorialGroup.SetActive(false);
-        utils.setBackgroundActive(false);
+        utils.SetBackgroundActive(false);
         StartCoroutine(StartDelay(2));
     }
     IEnumerator StartDelay(int seconds)

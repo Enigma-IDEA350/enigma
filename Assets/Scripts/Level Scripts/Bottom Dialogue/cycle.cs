@@ -31,7 +31,8 @@ public class cycle : MonoBehaviour
         currentSlide = 0;
         messages.begin(texts);
     }
-    public void runStart2() {
+    public void runStart2()
+    {
         currentSlide = 0;
         messages.begin(texts);
     }
@@ -81,7 +82,7 @@ public class cycle : MonoBehaviour
         else if (!isAllowed)
         {
             ErrorHandler errorHandler = GameObject.Find("ERROR_MESSAGE").GetComponent<ErrorHandler>();
-            errorHandler.raiseError(errorMessage);
+            errorHandler.RaiseError(errorMessage);
         }
 
     }

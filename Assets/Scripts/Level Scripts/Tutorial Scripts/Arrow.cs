@@ -4,84 +4,77 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     // Start is called before the first frame update
-    Transform[] listOfPositions;
-    [SerializeField] Vector3 target;
-    [SerializeField] Vector3 dirNormalized;
-    [SerializeField] Vector3 rotNormalized;
-    [SerializeField] Vector3 targetRot;
+    Transform[] _listOfPositions;
+    Vector3 _target;
+    Vector3 _dirNormalized;
+    Vector3 _rotNormalized;
+    Vector3 _targetRot;
+    float _speed;
+    int _postion = 0;
+    bool _arrow = false;
+    bool _unArrow = false;
+    float _fadeSpeed;
+    Utils _utils = new Utils();
 
-    [SerializeField] float speed;
-
-    [SerializeField] int postion = 0;
-
-    public int getListLen() { return listOfPositions.Length; }
-    ChatBubble messages;
-    bool arrow = false;
-    bool unArrow = false;
-    next next;
-    float fadeSpeed;
-
-    Utils utils = new Utils();
-
-    public void show()
+    public void Show()
     {
-        arrow = true;
-        unArrow = false;
-        fadeSpeed = 2 * Time.deltaTime;
+        _arrow = true;
+        _unArrow = false;
+        _fadeSpeed = 2 * Time.deltaTime;
         enabled = true;
 
     }
-    public void hide()
+    public void Hide()
     {
-        unArrow = true;
-        arrow = false;
-        fadeSpeed = 2 * Time.deltaTime;
+        _unArrow = true;
+        _arrow = false;
+        _fadeSpeed = 2 * Time.deltaTime;
         enabled = true;
     }
     void Start()
     {
-        listOfPositions = GameObject.Find("Tutorial Positions").GetComponentsInChildren<Transform>();
+        _listOfPositions = GameObject.Find("Tutorial Positions").GetComponentsInChildren<Transform>();
         List<Transform> lst = new List<Transform>();
-        lst.AddRange(listOfPositions);
+        lst.AddRange(_listOfPositions);
         lst.Remove(GameObject.Find("Tutorial Positions").transform);
-        listOfPositions = lst.ToArray();
-        transform.position = listOfPositions[0].position;
+        _listOfPositions = lst.ToArray();
+        transform.position = _listOfPositions[0].position;
     }
 
-    public void startArrowAt(int index)
+    public void StartArrowAt(int index)
     {
-        transform.position = listOfPositions[index].position;
+        transform.position = _listOfPositions[index].position;
     }
 
-    public void nextArrow()
+    public void NextArrow()
     {
-        if (postion + 1 < listOfPositions.Length)
+        if (_postion + 1 < _listOfPositions.Length)
         {
-            postion += 1;
-            target = listOfPositions[postion].position;
-            targetRot = listOfPositions[postion].forward;
-            dirNormalized = (target - transform.position).normalized;
-            rotNormalized = (targetRot - transform.forward).normalized;
-            speed = 2 * Time.deltaTime;
+            _postion += 1;
+            _target = _listOfPositions[_postion].position;
+            _targetRot = _listOfPositions[_postion].forward;
+            _dirNormalized = (_target - transform.position).normalized;
+            _rotNormalized = (_targetRot - transform.forward).normalized;
+            _speed = 2 * Time.deltaTime;
             enabled = true;
         }
     }
 
     void Update()
     {
-        if (Vector2.Distance(target, transform.position) <= .1f && Vector2.Distance(targetRot, transform.forward) <= .1f)
+        if (Vector2.Distance(_target, transform.position) <= .1f && Vector2.Distance(_targetRot, transform.forward) <= .1f)
         {
             enabled = false;
         }
-        if (Vector2.Distance(target, transform.position) > .1f)
+        if (Vector2.Distance(_target, transform.position) > .1f)
         {
-            transform.position = transform.position + dirNormalized * speed;
+            transform.position = transform.position + _dirNormalized * _speed;
         }
-        if (Vector2.Distance(targetRot, transform.forward) > .1f)
+        if (Vector2.Distance(_targetRot, transform.forward) > .1f)
         {
-            transform.forward += rotNormalized * speed;
+            transform.forward += _rotNormalized * _speed;
         }
-        if (arrow) utils.fadeIn(GameObject.Find("arrow").GetComponent<SpriteRenderer>(), 1);
-        if (unArrow) utils.fadeOut(GameObject.Find("arrow").GetComponent<SpriteRenderer>(), 1);
+        if (_arrow) _utils.FadeIn(GameObject.Find("_arrow").GetComponent<SpriteRenderer>(), 1);
+        if (_unArrow) _utils.FadeOut(GameObject.Find("_arrow").GetComponent<SpriteRenderer>(), 1);
     }
 }

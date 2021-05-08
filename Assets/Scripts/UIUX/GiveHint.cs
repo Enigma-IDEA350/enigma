@@ -26,6 +26,6 @@ public class GiveHint : MonoBehaviour
 
     private void RaiseHint(string hint)
     {
-        errorHandler.raiseError(hint);
+        errorHandler.RaiseError(hint);
     }
 }

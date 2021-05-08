@@ -145,7 +145,7 @@ public class GameLogic : MonoBehaviour
     public void RaiseError(string error)
     {
         blockErrors = true;
-        errorHandler.raiseError(error);
+        errorHandler.RaiseError(error);
     }
 
     public void TestMachine()
@@ -188,7 +188,7 @@ public class GameLogic : MonoBehaviour
             else
             {
 
-                errorHandler.raiseError("You are missing a WRITE block");
+                errorHandler.RaiseError("You are missing a WRITE block");
                 MessageData.Decode_Attempt = "";
             }
             OutputField.text = MessageData.Decode_Attempt;

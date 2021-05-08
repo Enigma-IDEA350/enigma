@@ -1,29 +1,28 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 
 public class ComputerBoot : MonoBehaviour
 
 {
-    public AudioClip StartClip;
-    public AudioClip LoopClip;
+    private AudioClip _startClip;
+    private AudioClip _loopClip;
     //public float volume_of_boot;
     //public float volume_of_fan;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(playSound());
+        StartCoroutine(PlaySound());
     }
 
     // Update is called once per frame
-    IEnumerator playSound()
+    IEnumerator PlaySound()
     {
         GetComponent<AudioSource>().volume = .12f;
-        GetComponent<AudioSource>().clip = StartClip;
+        GetComponent<AudioSource>().clip = _startClip;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(StartClip.length);
-        GetComponent<AudioSource>().clip = LoopClip;
+        yield return new WaitForSeconds(_startClip.length);
+        GetComponent<AudioSource>().clip = _loopClip;
         GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().volume = .04f;

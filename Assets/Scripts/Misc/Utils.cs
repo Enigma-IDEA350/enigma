@@ -5,7 +5,7 @@ using TMPro;
 public class Utils
 {
 
-    public void fadeIn(SpriteRenderer item, float speed)
+    public void FadeIn(SpriteRenderer item, float speed)
     {
         if (item.color.a < 255)
         {
@@ -15,7 +15,7 @@ public class Utils
             item.color = objectColor;
         }
     }
-    public void fadeOut(SpriteRenderer item, float speed)
+    public void FadeOut(SpriteRenderer item, float speed)
     {
         if (item.color.a > 0)
         {
@@ -25,7 +25,7 @@ public class Utils
             item.color = objectColor;
         }
     }
-    public void fadeInBttn(Image item, float speed)
+    public void FadeInBttn(Image item, float speed)
     {
         if (item.color.a < 255)
         {
@@ -35,7 +35,7 @@ public class Utils
             item.color = objectColor;
         }
     }
-    public void fadeOutBttn(Image item, float speed)
+    public void FadeOutBttn(Image item, float speed)
     {
         if (item.color.a > 0)
         {
@@ -61,7 +61,7 @@ public class Utils
             (component as Behaviour).enabled = isActive;
         }
     }
-    public void setBackgroundActive(bool isActive)
+    public void SetBackgroundActive(bool isActive)
     {
         GameObject[] backgroundInteractables = GameObject.FindGameObjectsWithTag("BGI");
         foreach (GameObject obj in backgroundInteractables)
@@ -84,7 +84,7 @@ public class Utils
             SpriteRenderer[] spriteItems = GameObject.Find("Tutorial Dialogue").GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer item in spriteItems)
             {
-                if (item.gameObject.name != "Background") fadeIn(item, 3f);
+                if (item.gameObject.name != "Background") FadeIn(item, 3f);
             }
         }
         GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = true;
@@ -93,36 +93,36 @@ public class Utils
 
     }
 
-    public void hideChatBubble()
+    public void HideChatBubble()
 
     {
         SpriteRenderer[] spriteItems = GameObject.Find("Tutorial Dialogue").GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer item in spriteItems)
         {
-            fadeOut(item, 3f);
+            FadeOut(item, 3f);
         }
         GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = false;
     }
-    public void activeFor(bool isActive)
+    public void ActiveFor(bool isActive)
     {
         GameObject.Find("for_maker").GetComponent<PolygonCollider2D>().enabled = isActive;
     }
-    public void activeShift(bool isActive)
+    public void ActiveShift(bool isActive)
     {
         GameObject.Find("shift_maker").GetComponent<PolygonCollider2D>().enabled = isActive;
 
     }
-    public void activeRead(bool isActive)
+    public void ActiveRead(bool isActive)
     {
         GameObject.Find("read_maker").GetComponent<PolygonCollider2D>().enabled = isActive;
 
     }
-    public void activeIf(bool isActive)
+    public void ActiveIf(bool isActive)
     {
         GameObject.Find("If_maker").GetComponent<PolygonCollider2D>().enabled = isActive;
 
     }
-    public void activeSwitch(bool isActive)
+    public void ActiveSwitch(bool isActive)
     {
         GameObject.Find("switch_maker").GetComponent<PolygonCollider2D>().enabled = isActive;
 

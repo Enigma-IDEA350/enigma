@@ -14,16 +14,16 @@ public class ErrorHandler : MonoBehaviour
         errorFade = GetComponent<FadeScript>();
     }
 
-    IEnumerator showError(int seconds)
+    IEnumerator ShowError(int seconds)
     {
         errorFade.FadeIn();
         yield return new WaitForSeconds(seconds);
         errorFade.FadeOut();
     }
 
-    public void raiseError(string errorText)
+    public void RaiseError(string errorText)
     {
         errorMessage.text = errorText;
-        StartCoroutine(showError(1));
+        StartCoroutine(ShowError(1));
     }
 }

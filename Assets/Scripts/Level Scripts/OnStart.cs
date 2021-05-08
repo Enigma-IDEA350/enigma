@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class OnStart : MonoBehaviour
 {
-    tutorialStart tutorial;
-    Message_SO levelInfo;
-    GameLogic gameLogic;
+    tutorialStart _tutorial;
+    Message_SO _levelInfo;
+    GameLogic _gameLogic;
 
     void Start()
     {
         //levelInfo = GameObject.Find("GameLogic").GetComponent<GameLogic>().MessageData;
 
-        gameLogic = FindObjectOfType<GameLogic>();
-        Debug.Log(gameLogic == null);
-        levelInfo = gameLogic.MessageData;
+        _gameLogic = FindObjectOfType<GameLogic>();
+        Debug.Log(_gameLogic == null);
+        _levelInfo = _gameLogic.MessageData;
         List<int> tutorialLevels = new List<int> { 1, 4 };
-        tutorial = gameObject.GetComponent<tutorialStart>();
+        _tutorial = gameObject.GetComponent<tutorialStart>();
 
-        if (tutorialLevels.Contains(levelInfo.CurrLevel))
+        if (tutorialLevels.Contains(_levelInfo.CurrLevel))
         {
-            List<string[]> groupOfMessages = new ListsOfMessages().getTutorialLevelDialogue(levelInfo.CurrLevel);
-            string[] initText = new ListsOfMessages().getinitTutorialLevelDialogue(levelInfo.CurrLevel);
-            tutorial.tutorialInit(initText, groupOfMessages, levelInfo.CurrLevel);
+            List<string[]> groupOfMessages = new ListsOfMessages().getTutorialLevelDialogue(_levelInfo.CurrLevel);
+            string[] initText = new ListsOfMessages().getinitTutorialLevelDialogue(_levelInfo.CurrLevel);
+            _tutorial.tutorialInit(initText, groupOfMessages, _levelInfo.CurrLevel);
         }
         else
         {
-            string[] levelDialogue = new ListsOfMessages().getLevelDialogue(levelInfo.CurrLevel);
-            tutorial.regularInit(levelDialogue);
+            string[] levelDialogue = new ListsOfMessages().getLevelDialogue(_levelInfo.CurrLevel);
+            _tutorial.regularInit(levelDialogue);
         }
     }
 

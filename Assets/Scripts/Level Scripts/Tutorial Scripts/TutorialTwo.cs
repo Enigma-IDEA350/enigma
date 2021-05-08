@@ -21,7 +21,7 @@ public class TutorialTwo : MonoBehaviour
         next.setTranstion(forInputTransition);
         tutorialVerifier.verifyForMade();
         cycle.blockNext("Click on the FOR block");
-        utils.activeFor(true);
+        utils.ActiveFor(true);
         cycle.runStartGroup();
     }
 
@@ -46,8 +46,8 @@ public class TutorialTwo : MonoBehaviour
 
     void ifTranstion()
     {
-        utils.activeIf(true);
-        arrow.show();
+        utils.ActiveIf(true);
+        arrow.Show();
         cycle.blockNext("Click on IF block!");
         tutorialVerifier.verifyIfMade();
         next.setTranstion(ifInputTransition);
@@ -66,8 +66,8 @@ public class TutorialTwo : MonoBehaviour
     }
     void switchTransition()
     {
-        arrow.nextArrow();
-        utils.activeSwitch(true);
+        arrow.NextArrow();
+        utils.ActiveSwitch(true);
         cycle.blockNext("Click on the Switch block");
         tutorialVerifier.verifySwitchMade();
         next.setTranstion(switchInputTransition);
@@ -86,7 +86,7 @@ public class TutorialTwo : MonoBehaviour
     }
     void readTransition()
     {
-        utils.activeRead(true);
+        utils.ActiveRead(true);
         GameObject.Find("arrow").SetActive(false);
         GameObject.Find("Arrows for Cycle").SetActive(false);
         cycle.blockNext("Click on WRITE Block");

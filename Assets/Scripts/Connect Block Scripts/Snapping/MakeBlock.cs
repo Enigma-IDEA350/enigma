@@ -58,11 +58,11 @@ public class MakeBlock : MonoBehaviour
         }
         else if (onlyOne)
         {
-            errorHandler.raiseError("There can only be one of this block!");
+            errorHandler.RaiseError("There can only be one of this block!");
         }
         else
         {
-            errorHandler.raiseError("Too many Blocks!");
+            errorHandler.RaiseError("Too many Blocks!");
         }
 
 

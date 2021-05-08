@@ -7,26 +7,26 @@ using UnityEngine.SceneManagement;
 public class Music : MonoBehaviour
 {
     //private AudioSource source;
-    private GameObject[] GameMusic;
-    public GamePlayMusic gamePlayMusic;
-    private AudioSource source;
-    private bool musicPlaying = false;
+    private GameObject[] _gameMusic;
+    public GamePlayMusic _gamePlayMusic;
+    private AudioSource _source;
+    private bool _musicPlaying = false;
 
     private void Awake()
     {
         Music[] musics = FindObjectsOfType<Music>();
         if (musics.Length == 2)
         {
-            gamePlayMusic.reset();
+            _gamePlayMusic.reset();
         }
 
         DontDestroyOnLoad(gameObject);
-        source = GetComponent<AudioSource>();
+        _source = GetComponent<AudioSource>();
 
-        if (!gamePlayMusic.musicStarted)
+        if (!_gamePlayMusic.musicStarted)
         {
-            source.Play();
-            gamePlayMusic.startMusic();
+            _source.Play();
+            _gamePlayMusic.startMusic();
         }
     }
 
@@ -39,25 +39,25 @@ public class Music : MonoBehaviour
         if (sceneName == "NEW__MAIN_MENU")
         {
             Debug.Log("In main menu");
-            GameMusic = GameObject.FindGameObjectsWithTag("GameplayMusic");
+            _gameMusic = GameObject.FindGameObjectsWithTag("GameplayMusic");
 
-            if (GameMusic.Length > 1)
+            if (_gameMusic.Length > 1)
             {
                 //Destroy(GameMusic[1]);
-                Destroy(GameMusic[0]);
-                Destroy(GameMusic[1]);
+                Destroy(_gameMusic[0]);
+                Destroy(_gameMusic[1]);
             }
         }
     }
 
     public void PlayMusic()
     {
-        if (source.isPlaying) return;
-        source.Play();
+        if (_source.isPlaying) return;
+        _source.Play();
     }
 
     public void StopMusic()
     {
-        source.Stop();
+        _source.Stop();
     }
 }

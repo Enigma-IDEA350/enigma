@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5f91762e79d4ba998b1ab6fe2f093a, type: 3}
+  m_Name: tut1
+  m_EditorClassIdentifier: 
+  CurrLevel: 1
+  Code: aa bb cc
+  CorrectText: bb cc dd
+  decodeAttemptBacking: bb cc dd
+  CorrectEnd: 0
+  ForOn: 1
+  ShiftOn: 1
+  ReadOn: 1
+  IfOn: 0
+  SwitchOn: 0
+  hint: 

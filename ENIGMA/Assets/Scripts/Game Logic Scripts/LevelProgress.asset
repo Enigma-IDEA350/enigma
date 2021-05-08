@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c336cbb77554034b96adb513971526, type: 3}
+  m_Name: LevelProgress
+  m_EditorClassIdentifier: 
+  tutorial1: {fileID: 11400000, guid: 9b7b781f601154663929e1b05a47b1ad, type: 2}
+  level2: {fileID: 11400000, guid: 51be772e2a6ac4dce9af7c581f73901d, type: 2}
+  level3: {fileID: 11400000, guid: 1e2abd8d82b2c4fbab8e60b650adc698, type: 2}
+  tutorial4: {fileID: 11400000, guid: 9c3962493cec6452cb94fffdcf037415, type: 2}
+  level5: {fileID: 11400000, guid: 9377ee0a860804aeebfb2dbb69eaedc0, type: 2}
+  level6: {fileID: 11400000, guid: 96f588fee9fe64729bfbe052b2743372, type: 2}
+  level7: {fileID: 11400000, guid: 6aa2300fcd92044fc8be962fb6c7b5b8, type: 2}
+  level8: {fileID: 11400000, guid: 68d75f077e7d34c358205dfa14b1b8f7, type: 2}
+  level9: {fileID: 11400000, guid: b6f2076781bf340c38c06c26e80e5df3, type: 2}
+  tut1_unlocked: 1

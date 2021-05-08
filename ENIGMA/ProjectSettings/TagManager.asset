@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - ActionBlock
+  - MouthBlock
+  - HybridBlock
+  - DIAL1
+  - DIAL2
+  - DIAL3
+  - BGI
+  - GameMusic
+  - GameplayMusic
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Post processing
+  - 
+  - HIGHLIGHT
+  - 
+  - Pause Menu
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2096217281
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Block
+    uniqueID: 2107418407
+    locked: 0
+  - name: Pause Menu
+    uniqueID: 2637164245
+    locked: 0

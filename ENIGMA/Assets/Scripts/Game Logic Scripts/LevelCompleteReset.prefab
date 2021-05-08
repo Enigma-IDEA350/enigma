@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3538929816084360016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3538929816084360018}
+  - component: {fileID: 3538929816084360019}
+  m_Layer: 0
+  m_Name: LevelCompleteReset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3538929816084360018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538929816084360016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18007463, y: 1.5747424, z: -38.55739}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3538929816084360019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538929816084360016}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f940f94be55a0475089ca83adc8e8e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tut1: {fileID: 11400000, guid: 9b7b781f601154663929e1b05a47b1ad, type: 2}
+  lvl2: {fileID: 11400000, guid: 51be772e2a6ac4dce9af7c581f73901d, type: 2}
+  lvl3: {fileID: 11400000, guid: 1e2abd8d82b2c4fbab8e60b650adc698, type: 2}
+  tut4: {fileID: 11400000, guid: 9c3962493cec6452cb94fffdcf037415, type: 2}
+  lvl5: {fileID: 11400000, guid: 9377ee0a860804aeebfb2dbb69eaedc0, type: 2}
+  lvl6: {fileID: 11400000, guid: 96f588fee9fe64729bfbe052b2743372, type: 2}
+  lvl7: {fileID: 11400000, guid: 6aa2300fcd92044fc8be962fb6c7b5b8, type: 2}
+  lvl8: {fileID: 11400000, guid: 68d75f077e7d34c358205dfa14b1b8f7, type: 2}
+  lvl9: {fileID: 11400000, guid: b6f2076781bf340c38c06c26e80e5df3, type: 2}

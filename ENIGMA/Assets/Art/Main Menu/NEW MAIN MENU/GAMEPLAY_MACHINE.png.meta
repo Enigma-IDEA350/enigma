@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: 01307199ffc1a4040a0d81dd282bbfdf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5284314160851005745
+    second: GAMEPLAY_MACHINE_0
+  - first:
+      213: -6408572985680438946
+    second: GAMEPLAY_MACHINE_1
+  - first:
+      213: 2196280771391118319
+    second: GAMEPLAY_MACHINE_2
+  - first:
+      213: -1651584396251603903
+    second: GAMEPLAY_MACHINE_3
+  - first:
+      213: -4181183104805545081
+    second: GAMEPLAY_MACHINE_4
+  - first:
+      213: 4291648088601865744
+    second: GAMEPLAY_MACHINE_5
+  - first:
+      213: 3784176127559531867
+    second: GAMEPLAY_MACHINE_6
+  - first:
+      213: 275134901003154553
+    second: GAMEPLAY_MACHINE_7
+  - first:
+      213: -1318268619786167586
+    second: GAMEPLAY_MACHINE_8
+  - first:
+      213: -4879614934586721127
+    second: GAMEPLAY_MACHINE_9
+  - first:
+      213: 5235236146094144237
+    second: GAMEPLAY_MACHINE_10
+  - first:
+      213: -5145605485038868672
+    second: GAMEPLAY_MACHINE_11
+  - first:
+      213: -5493319565986062389
+    second: GAMEPLAY_MACHINE_12
+  - first:
+      213: -5837653450163096534
+    second: GAMEPLAY_MACHINE_13
+  - first:
+      213: 3626640672468725720
+    second: GAMEPLAY_MACHINE_14
+  - first:
+      213: 2463604764371360620
+    second: GAMEPLAY_MACHINE_15
+  - first:
+      213: 7812603520689353580
+    second: GAMEPLAY_MACHINE_16
+  - first:
+      213: -9176435034020229433
+    second: GAMEPLAY_MACHINE_17
+  - first:
+      213: -3287259259474839241
+    second: GAMEPLAY_MACHINE_18
+  - first:
+      213: -2252524564083824875
+    second: GAMEPLAY_MACHINE_19
+  - first:
+      213: -7565047102114532734
+    second: GAMEPLAY_MACHINE_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 3414
+        width: 587
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13137175bb7a55940800000000000000
+      internalID: 5284314160851005745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 3465
+        width: 151
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e595a57d2dc2017a0800000000000000
+      internalID: -6408572985680438946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_2
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 3458
+        width: 149
+        height: 81
+      alignment: 9
+      pivot: {x: 0.48037148, y: 0.5361057}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febd9c5a9b1ca7e10800000000000000
+      internalID: 2196280771391118319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_3
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 3227
+        width: 1463
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c58d8fdb46419e0800000000000000
+      internalID: -1651584396251603903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_4
+      rect:
+        serializedVersion: 2
+        x: 2419
+        y: 3249
+        width: 254
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b53397e1479f5c0800000000000000
+      internalID: -4181183104805545081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_5
+      rect:
+        serializedVersion: 2
+        x: 3116
+        y: 3241
+        width: 595
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e291ec23ffe8b30800000000000000
+      internalID: 4291648088601865744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_6
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 3410
+        width: 440
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5df2ba7328148430800000000000000
+      internalID: 3784176127559531867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_7
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 3410
+        width: 440
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974fa971cb971d300800000000000000
+      internalID: 275134901003154553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_8
+      rect:
+        serializedVersion: 2
+        x: 4191
+        y: 3320
+        width: 604
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edad91fbca194bde0800000000000000
+      internalID: -1318268619786167586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_9
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 3338
+        width: 440
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c744ff110284cb0800000000000000
+      internalID: -4879614934586721127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_10
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 3338
+        width: 440
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deaf933998b47a840800000000000000
+      internalID: 5235236146094144237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_11
+      rect:
+        serializedVersion: 2
+        x: 4212
+        y: 3341
+        width: 68
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047e4fde2132798b0800000000000000
+      internalID: -5145605485038868672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_12
+      rect:
+        serializedVersion: 2
+        x: 4315
+        y: 3341
+        width: 70
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf92b7a5fec3c3b0800000000000000
+      internalID: -5493319565986062389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_13
+      rect:
+        serializedVersion: 2
+        x: 4420
+        y: 3341
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24f135cd1d7cfea0800000000000000
+      internalID: -5837653450163096534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_14
+      rect:
+        serializedVersion: 2
+        x: 4522
+        y: 3341
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df6b721a7a645230800000000000000
+      internalID: 3626640672468725720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_15
+      rect:
+        serializedVersion: 2
+        x: 4626
+        y: 3341
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b905ffa7b703220800000000000000
+      internalID: 2463604764371360620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_16
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 3264
+        width: 440
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63b7a55281fb6c60800000000000000
+      internalID: 7812603520689353580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_17
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 3264
+        width: 440
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce46c494f0c6a080800000000000000
+      internalID: -9176435034020229433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_18
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2972
+        width: 383
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7397362ce1f4162d0800000000000000
+      internalID: -3287259259474839241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_19
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 4285
+        height: 2638
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51721f5e7dc6db0e0800000000000000
+      internalID: -2252524564083824875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAMEPLAY_MACHINE_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2027
+        width: 695
+        height: 652
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2827d51fdbd830790800000000000000
+      internalID: -7565047102114532734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

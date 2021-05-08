@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
 {
-    public Animator animator;
-    public float transitionDelayTime = .5f;
+    private Animator _animator;
+    private float _transitionDelayTime = .5f;
 
     void Awake()
     {
-        animator = GameObject.Find("Transition").GetComponent<Animator>();
+        _animator = GameObject.Find("Transition").GetComponent<Animator>();
     }
 
     public void LoadLevel(string levelName)
@@ -21,8 +21,8 @@ public class Transition : MonoBehaviour
 
     IEnumerator DelayLoadLevel(string levelName)
     {
-        animator.SetTrigger("TriggerTransition");
-        yield return new WaitForSeconds(transitionDelayTime);
+        _animator.SetTrigger("TriggerTransition");
+        yield return new WaitForSeconds(_transitionDelayTime);
         SceneManager.LoadScene(levelName);
     }
-}  
+}

@@ -1,53 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Elbow : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    
-
-    public float speed;
-    public Transform target;
-    public bool goRight;
-    public bool goLeft;
-    public float leftClamp;
-    public float rightClamp;
-
-
-    private void Start()
-    {
-        //min = transform.position.z;
-        //max = transform.position.z + max_diff;
-    }
+    private float _speed;
+    private Transform _target;
+    private bool _goRight;
+    private bool _goLeft;
+    private float _leftClamp;
+    private float _rightClamp;
 
     void Update()
     {
 
-        if (transform.eulerAngles.z <= leftClamp)
+        if (transform.eulerAngles.z <= _leftClamp)
         {
-            goRight = true;
-            goLeft = false;
+            _goRight = true;
+            _goLeft = false;
         }
-        if (transform.eulerAngles.z >= rightClamp)
+        if (transform.eulerAngles.z >= _rightClamp)
         {
-            goRight = false;
-            goLeft = true;
+            _goRight = false;
+            _goLeft = true;
         }
 
-        if (goLeft)
+        if (_goLeft)
         {
             Vector3 zAxis = new Vector3(0, 0, -1);
-            transform.RotateAround(target.position, zAxis, ((speed * Random.Range(0, 3)) * Time.deltaTime));
+            transform.RotateAround(_target.position, zAxis, ((_speed * Random.Range(0, 3)) * Time.deltaTime));
         }
 
-        if (goRight)
+        if (_goRight)
         {
             Vector3 zAxis = new Vector3(0, 0, 1);
-            transform.RotateAround(target.position, zAxis, ((speed * Random.Range(0, 3)) * Time.deltaTime));
+            transform.RotateAround(_target.position, zAxis, ((_speed * Random.Range(0, 3)) * Time.deltaTime));
         }
     }
 }

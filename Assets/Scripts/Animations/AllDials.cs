@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AllDials : MonoBehaviour
 {
@@ -16,8 +14,6 @@ public class AllDials : MonoBehaviour
     private float _timeTwo;
     private float _timeThree;
 
-    private AudioSource audioSource;
-
     //public AudioSource source;
     //Creating a variable for the audio source
 
@@ -25,7 +21,6 @@ public class AllDials : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("One", _timeOne, _timeOne);
         InvokeRepeating("Two", _timeTwo, _timeTwo);
         InvokeRepeating("Three", _timeThree, _timeThree);
@@ -34,7 +29,7 @@ public class AllDials : MonoBehaviour
 
     void One()
     {
-        audioSource.Play();
+        SoundManager.PlaySound(SoundManager.Sound.Dial);
         float x = _degreesOne.x;
         float y = _degreesOne.y;
         float z = _degreesOne.z;

@@ -4,9 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SpriteButton: MonoBehaviour, IPointerClickHandler,
-                                  IPointerDownHandler, IPointerEnterHandler,
-                                  IPointerUpHandler, IPointerExitHandler
+public class SpriteButton : MonoBehaviour, IPointerClickHandler
 {
     public Transition transition;
     public Animator animator;
@@ -22,28 +20,11 @@ public class SpriteButton: MonoBehaviour, IPointerClickHandler,
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        GetComponent<SnapSound>().MakeSound();
+        SoundManager.PlaySoundOnce(SoundManager.Sound.BlockSnap);
 
         transition.LoadLevel("LevelSelection");
         //SceneManager.LoadScene("LevelSelection");
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-    }
-
-    //Add Event System to the Camera
     void addEventSystem()
     {
         GameObject eventSystem = null;

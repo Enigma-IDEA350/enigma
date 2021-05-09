@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ResultSounds : MonoBehaviour
 {
-    public AudioSource winnerSound;
     public bool correctAnswer;
     private bool soundPlayed;
     Utils utils = new Utils();
@@ -27,7 +26,6 @@ public class ResultSounds : MonoBehaviour
         playButton = FindObjectOfType<PlayButton>();
         clicked = false;
         soundPlayed = false;
-        winnerSound = GameObject.Find("winnerSound").GetComponent<AudioSource>();
 
 
     }
@@ -42,7 +40,7 @@ public class ResultSounds : MonoBehaviour
     {
         Debug.Log("Play sound");
         yield return new WaitForSeconds(.4f);
-        winnerSound.Play();
+        SoundManager.PlaySoundOnce(SoundManager.Sound.Winning);
         showChat = true;
         StartCoroutine(Chat());
     }

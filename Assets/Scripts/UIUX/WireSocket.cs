@@ -30,14 +30,10 @@ public class WireSocket : MonoBehaviour
     public bool tutorialPurple;
     public bool yellowWire2;
     public bool redWire2;
-
-    public AudioSource spark;
-    public AudioSource plugged;
-
     public PlayButton playButton;
     public GameLogic gameLogic;
 
-    public void Awake() 
+    public void Awake()
     {
         wire = gameObject.transform.Find("Wire").GetComponent<SpriteRenderer>();
         socket = gameObject.transform.Find("Socket").GetComponent<SpriteRenderer>();
@@ -52,23 +48,19 @@ public class WireSocket : MonoBehaviour
         originalWireCopy = wire.transform.position;
         socketScale = socket.transform.localScale;
         socketBounds = socket.sprite.bounds.max;
-
-        spark = GameObject.Find("Spark").GetComponent<AudioSource>();
-        plugged = GameObject.Find("Plugged").GetComponent<AudioSource>();
-        
     }
 
     IEnumerator sparkSound()
     {
         yield return new WaitForSeconds(0);
-        spark.Play();
+        SoundManager.PlaySound(SoundManager.Sound.Spark);
     }
 
     IEnumerator pluggedSound()
-        {
-            yield return new WaitForSeconds(0.5f);
-            plugged.Play();
-        }
+    {
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.PlaySound(SoundManager.Sound.Plugged);
+    }
 
     // Update is called once per frame
     public void Update()
@@ -79,7 +71,8 @@ public class WireSocket : MonoBehaviour
             correctAnswer = gameLogic.CorrectDecode;
         }
 
-        if (clicked && !transitionComplete) {
+        if (clicked && !transitionComplete)
+        {
             wireCopy = wire.transform.position;
             wireBounds = wire.sprite.bounds.max;
 
@@ -88,7 +81,8 @@ public class WireSocket : MonoBehaviour
                 wireCopy.y = socket.transform.position.y + socketScale.y * socketBounds.y - wire.transform.localScale.y * wireBounds.y;
                 if (!redWire) wireCopy.x = socket.transform.position.x - socketScale.x * socketBounds.x + wire.transform.localScale.x * wireBounds.x;
                 if (blueWire) wireCopy.x = socket.transform.position.x;
-                if (greenWire) {
+                if (greenWire)
+                {
                     wireCopy.x = socket.transform.position.x - 0.9f * socketScale.x * socketBounds.x + wire.transform.localScale.x * wireBounds.x;
                 }
                 if (greenWire) wireCopy.y = socket.transform.position.y + 1.1f * socketScale.y * socketBounds.y - wire.transform.localScale.y * wireBounds.y;
@@ -105,16 +99,17 @@ public class WireSocket : MonoBehaviour
                 transitionComplete = true;
                 timeLeft = 1.5f;
             }
-            
-            else if (timeLeft > 0.68f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 0.9f*(socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x),Time.deltaTime/timeLeft);
-                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y,Time.deltaTime/timeLeft);
-                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);                
+
+            else if (timeLeft > 0.68f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 0.9f * (socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x), Time.deltaTime / timeLeft);
+                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
                 if (!correctAnswer)
@@ -125,50 +120,54 @@ public class WireSocket : MonoBehaviour
                 {
                     StartCoroutine(pluggedSound());
                 }
-            }   
+            }
 
-            else if (timeLeft > 0.51f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 1.1f*(socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x),Time.deltaTime/timeLeft);
-                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x,Time.deltaTime/timeLeft);   
-                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y,Time.deltaTime/timeLeft);
-                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);             
+            else if (timeLeft > 0.51f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 1.1f * (socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x), Time.deltaTime / timeLeft);
+                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
-            }  
+            }
 
-            else if (timeLeft > 0.34f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 0.9f*(socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x),Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y,Time.deltaTime/timeLeft);
-                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
+            else if (timeLeft > 0.34f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 0.9f * (socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x), Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
-            }  
+            }
 
-            else {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 1.1f*(socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x),Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
-                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime/timeLeft);
-                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x,Time.deltaTime/timeLeft);
-                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y,Time.deltaTime/timeLeft);
-                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x,Time.deltaTime/timeLeft);
+            else
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (!redWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, 1.1f * (socket.transform.position.x - socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x), Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
+                if (yellowWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 2.0f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (blueWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x - 0.9f * socket.transform.localScale.x * socket.sprite.bounds.max.x + wire.transform.localScale.x * wireBounds.x, Time.deltaTime / timeLeft);
+                if (greenWire) wireCopy.y = Mathf.Lerp(wire.transform.position.y, socket.transform.position.y + 1.1f * socket.transform.localScale.y * socket.sprite.bounds.max.y - wire.transform.localScale.y * wireBounds.y, Time.deltaTime / timeLeft);
+                if (purpleWire) wireCopy.x = Mathf.Lerp(wire.transform.position.x, socket.transform.position.x + 0.5f * socket.transform.localScale.x * socket.sprite.bounds.max.x, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
             }
         }
-        if (transitionComplete && !correctAnswer) 
+        if (transitionComplete && !correctAnswer)
         {
-            if (timeLeft <= Time.deltaTime) {
+            if (timeLeft <= Time.deltaTime)
+            {
                 // transition complete
                 wireCopy.y = originalWireCopy.y;
                 wire.transform.position = originalWireCopy;
@@ -176,30 +175,35 @@ public class WireSocket : MonoBehaviour
                 clicked = false;
                 timeLeft = 0.85f;
             }
-            else if (timeLeft > 0.85f) {
+            else if (timeLeft > 0.85f)
+            {
                 timeLeft -= Time.deltaTime;
             }
-            else if (timeLeft > 0.68f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime/timeLeft);
-                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x * 0.85f,Time.deltaTime/timeLeft);
+            else if (timeLeft > 0.68f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime / timeLeft);
+                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x * 0.85f, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
-            }   
-            else if (timeLeft > 0.51f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime/timeLeft);
-                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x,Time.deltaTime/timeLeft);
+            }
+            else if (timeLeft > 0.51f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime / timeLeft);
+                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
-            }  
-            else if (timeLeft > 0.34f) {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime/timeLeft);
-                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x * 1.15f,Time.deltaTime/timeLeft);
+            }
+            else if (timeLeft > 0.34f)
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime / timeLeft);
+                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x * 1.15f, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
-            }  
-            else {
-                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime/timeLeft);
-                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x,Time.deltaTime/timeLeft);
+            }
+            else
+            {
+                wireCopy.y = Mathf.Lerp(wire.transform.position.y, originalWireCopy.y, Time.deltaTime / timeLeft);
+                wireCopy.x = Mathf.Lerp(wire.transform.position.x, wire.transform.position.x, Time.deltaTime / timeLeft);
                 wire.transform.position = wireCopy;
                 timeLeft -= Time.deltaTime;
             }

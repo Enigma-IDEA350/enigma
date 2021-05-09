@@ -10,7 +10,7 @@ public class ActionSnap : MonoBehaviour
 
     [SerializeField] private bool bottomConnected = false;
     [SerializeField] private bool topConnected = false;
-    private AbstractBlock blah;
+    private AbstractBlock _myAbstractBlock;
     private CurrentBlocks blocks;
     private ActionSnap blockAbove;
 
@@ -20,7 +20,7 @@ public class ActionSnap : MonoBehaviour
 
 
 
-    public bool ImAIff => (blah.GetMyType() == "IfBlock");
+    public bool ImAIff => (_myAbstractBlock.GetMyType() == "IfBlock");
 
     public bool isOpen() { return !bottomConnected; }
     public bool isTopConnected() { return topConnected; }
@@ -32,7 +32,7 @@ public class ActionSnap : MonoBehaviour
     void Start()
     {
         blocks = GameObject.Find("GameLogic").GetComponent<CurrentBlocks>();
-        blah = transform.GetComponent<AbstractBlock>();
+        _myAbstractBlock = transform.GetComponent<AbstractBlock>();
     }
     public void snap()
     {
@@ -41,7 +41,7 @@ public class ActionSnap : MonoBehaviour
 
     public void disconnect()
     {
-        blah.GetComponent<ConnectBlock>().DisconnectMeFrom(transform.parent.GetComponent<AbstractBlock>());
+        _myAbstractBlock.GetComponent<ConnectBlock>().DisconnectMeFrom(transform.parent.GetComponent<AbstractBlock>());
         transform.SetParent(null);
         topConnected = false;
         if (blockAbove != null)
@@ -118,9 +118,9 @@ public class ActionSnap : MonoBehaviour
                     if (Vector3.Distance(conofBlock, recOfCurrent) <= minDistance && transform.parent != block.transform)// && blockAbove.BlockInsideMe == false)
                     {
                         blockAbove = block.GetComponent<ActionSnap>();
-                        if (!blockAbove.BlockInsideMeIf && !(blah.GetMyType() == "ReadBlock"))// || blah.GetMyType() == "IfBlock"))
+                        if (!blockAbove.BlockInsideMeIf && !(_myAbstractBlock.GetMyType() == "ReadBlock"))// || blah.GetMyType() == "IfBlock"))
                         {
-                            if (blah.GetMyType() != "IfBlock")
+                            if (_myAbstractBlock.GetMyType() != "IfBlock")
                                 transform.GetComponent<ConnectBlock>().ConnectMeTo(block.GetComponent<ConditionalBlock>());
                             snapToBottom(conofBlock, recOfCurrent);
                             transform.parent = block.transform;

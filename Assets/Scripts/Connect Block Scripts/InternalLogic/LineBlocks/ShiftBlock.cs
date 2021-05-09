@@ -6,29 +6,23 @@ using TMPro;
 
 public class ShiftBlock : AbstractDoBlock
 {
-    [SerializeField] private TMP_InputField ShiftField;
-    private int ShiftAmount
+    [SerializeField] private TMP_InputField shiftField;
+    private int _shiftAmount
     {
         get
         {
-            //Debug.Log("Updated");
-            //Debug.Log(ShiftField.text);
-            if (ShiftField.text == "")
+            if (shiftField.text == "")
             {
                 gameLogic.RaiseError("No number entered in the Shift Block");
                 return 0;
             }
-            else { return int.Parse(ShiftField.text); }
+            else { return int.Parse(shiftField.text); }
         }
     }
     public override char DoAction(char letter)
     {
-        //if (ShiftAmount == "")
-        //{
-
-        //}
         char d = char.IsUpper(letter) ? 'A' : 'a';
-        return (char)((((letter + ShiftAmount) - d) % 26) + d);
+        return (char)((((letter + _shiftAmount) - d) % 26) + d);
     }
 
     public override string GetMyType()

@@ -11,7 +11,7 @@ public abstract class AbstractDoBlock : AbstractBlock
         return ("DoBlock");
     }
 
-    public override LetterModifier totalAction => DoAction;
+    public override LetterModifier TotalAction => DoAction;
 
     public override LetterModifier ChildenActions()
     {

@@ -8,7 +8,7 @@ public abstract class AbstractBlock : MonoBehaviour
 
     private AbstractBlock myParent;
     public delegate char LetterModifier(char letter);
-    public abstract LetterModifier totalAction { get; }
+    public abstract LetterModifier TotalAction { get; }
     public LetterModifier BaseAction;
 
     public abstract string GetMyType();
@@ -26,7 +26,7 @@ public abstract class AbstractBlock : MonoBehaviour
         return myParent;
     }
 
-   
+
     public void Awake()
     {
         gameLogic = GameObject.FindObjectOfType<GameLogic>();

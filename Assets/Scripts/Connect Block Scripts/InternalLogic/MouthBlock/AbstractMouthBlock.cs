@@ -22,7 +22,7 @@ public abstract class AbstractMouthBlock : AbstractBlock
         foreach (AbstractBlock child in childHolder.ChildBlocks)
         {
 
-            letter = child.totalAction(letter);
+            letter = child.TotalAction(letter);
         }
         return letter;
     }

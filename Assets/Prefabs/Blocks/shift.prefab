@@ -255,7 +255,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2107418407
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3396856478291722485, guid: c9c77690a2a2b475d98fef599a4c6fd9,
     type: 3}
@@ -295,6 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomConnected: 0
   topConnected: 0
+  InsideIfBlock: 0
+  BlockInsideMeIf: 0
+  BlockInsideMeFor: 0
 --- !u!114 &5028875087710108242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4eb64310f8c4c6c92eaf5e69e25bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShiftField: {fileID: 6807694161339989847}
+  shiftField: {fileID: 6807694161339989847}
 --- !u!1 &5147747027238309652
 GameObject:
   m_ObjectHideFlags: 0

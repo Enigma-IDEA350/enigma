@@ -7,53 +7,49 @@ using System;
 using System.Linq;
 using System.Threading;
 
-//main driver for game logic also oops the maping and foreach stuff should
-//obviously be in a dif script, but too late to refactor :D
+//main driver for game logic 
 
 
 public class GameLogic : MonoBehaviour
 {
     public LevelWinArray_SO levelState;
 
-    ErrorHandler errorHandler;
+    public ErrorHandler errorHandler;
     BlockButtonGreyout blockButtonGreyout;
     Transition transition;
     public TextMeshProUGUI InputField;
     public TextMeshProUGUI OutputField;
     public Message_SO MessageData;
-    ForEachBlock[] ForEachBlocks;
-    ForEachBlock ForEachBlock;
 
-    private bool blockErrors = false;
-    public bool CorrectDecode = false;
+    public bool CorrectDecode { get; set; } = false;
 
-    public string potentialMessage;
+    public string PotentialMessage { get; set; } = "";
 
-    public bool wonAndWaited;
+    public bool WonAndWaited { get; set; }
 
     public bool Button = false;
 
     public bool editOutputText = false;
 
     public char[] letters;
-    public float timer = 0f;
-    public float timePerChar = 0.05f;
-    public int charIndex;
-    string text = "";
+    private float _timer { get; set; } = 0f;
+    private int _charIndex { get; set; }
 
-    public bool complete = false;
+    private RunMachine _runMachine;
+
+    private bool _complete = false;
 
     public void Start()
     {
         transition = FindObjectOfType<Transition>();
-        errorHandler = GameObject.FindObjectOfType<ErrorHandler>();
+        errorHandler = FindObjectOfType<ErrorHandler>();
         blockButtonGreyout = GetComponent<BlockButtonGreyout>();
+        _runMachine = GetComponent<RunMachine>();
+        
         InputField.text = MessageData.Code;
         OutputField.text = "";
-        //MessageData.Decode_Attempt = "";
-
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToArray();
-
+        
 
         //setting the maker blocks to on or off based on our scriptable object
         blockButtonGreyout.ForeachOn(MessageData.ForOn);
@@ -67,17 +63,56 @@ public class GameLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TextDisplay();
+        Win();
+
+    }
+
+    private void Win()
+    {
+        if (WonAndWaited)
+        {
+            if (MessageData.CurrLevel == 9)
+            {
+
+                if (Input.anyKey)
+                {
+                    levelState.BeatLevel(MessageData.CurrLevel);
+                    transition.LoadLevel("EndWinScene");
+                }
+            }
+            else
+            {
+                levelState.BeatLevel(MessageData.CurrLevel);
+                if (Input.anyKey)
+                {
+                    Debug.Log(transition == null);
+                    transition.LoadLevel("LevelSelection");
+                }
+            }
+        }
+        else
+        {
+            _complete = false;
+        }
+    }
+
+
+    //tsun code
+    private void TextDisplay()
+    {
         if (editOutputText)
         {
-            timer -= 0.1f;
-            while (charIndex < potentialMessage.Length && timer <= 0f)
+            _timer -= 0.1f;
+            Debug.Log(PotentialMessage == null);
+            while (_charIndex < PotentialMessage.Length && _timer <= 0f)
             {
-                timer += 0.5f;
-                charIndex++;
-                string text = potentialMessage.Substring(0, charIndex);
-                for (int i = 0; i < potentialMessage.Length - charIndex; i++)
+                _timer += 0.5f;
+                _charIndex++;
+                string text = PotentialMessage.Substring(0, _charIndex);
+                for (int i = 0; i < PotentialMessage.Length - _charIndex; i++)
                 {
-                    if (potentialMessage.Substring(charIndex + i, 1) == " ")
+                    if (PotentialMessage.Substring(_charIndex + i, 1) == " ")
                     {
                         text += " ";
                     }
@@ -89,113 +124,23 @@ public class GameLogic : MonoBehaviour
                 // text = "<mspace=2.5>" + text + "</mspace>";
                 OutputField.text = text;
             }
-            if (charIndex == potentialMessage.Length)
+            if (_charIndex == PotentialMessage.Length)
             {
-                complete = true;
+                _complete = true;
                 editOutputText = false;
-                charIndex = 0;
+                _charIndex = 0;
             }
         }
-
-
-        Debug.Log(complete);
-        if (wonAndWaited) //&& complete)
-        {
-            if (MessageData.CurrLevel == 9)
-            {
-
-                if (Input.anyKey)
-                {
-                    Debug.Log("asdffdas");
-                    levelState.BeatLevel(MessageData.CurrLevel);
-                    transition.LoadLevel("EndWinScene");
-                }
-                //else
-                //{
-                //    Debug.Log(transition == null);
-                //    transition.LoadLevel("LevelSelection");
-                //}
-            }
-            else
-            {
-                Debug.Log("fart");
-                levelState.BeatLevel(MessageData.CurrLevel);
-                if (Input.anyKey)
-                {
-                    Debug.Log(transition == null);
-                    transition.LoadLevel("LevelSelection");
-                    //SceneManager.LoadScene("LevelSelectionn");
-                }
-            }
-        }
-        else
-        {
-            complete = false;
-        }
-
-    }
-
-
-
-    public void BlockError()
-    {
-        blockErrors = true;
     }
 
     public void RaiseError(string error)
     {
-        blockErrors = true;
         errorHandler.raiseError(error);
+        _runMachine.BlockErrors = true;
     }
 
     public void TestMachine()
     {
-        blockErrors = false;
-        ForEachBlocks = GameObject.FindObjectsOfType<ForEachBlock>();
-
-        //cases for wrong number of blocks
-        if (ForEachBlocks.Length > 1)
-        {
-            RaiseError("There are too many FOR blocks");
-            MessageData.Decode_Attempt = "";
-        }
-        else if (ForEachBlocks.Length == 0)
-        {
-            RaiseError("You need a FOR block");
-            MessageData.Decode_Attempt = "";
-        }
-
-        //case for only one for eache
-        else
-        {
-            ForEachBlock = ForEachBlocks[0];
-
-
-            if (ForEachBlock.ReadblockExists)
-            {
-                //MessageData.Decode_Attempt = ForEachBlock.TestMap(MessageData.Code, 0, 6);
-                potentialMessage = ForEachBlock.Map(MessageData.Code);
-                if (!blockErrors)
-                {
-                    editOutputText = true;
-                    MessageData.Decode_Attempt = potentialMessage;
-                }
-                else
-                {
-                    MessageData.Decode_Attempt = "";
-                }
-            }
-            else
-            {
-
-                errorHandler.raiseError("You are missing a WRITE block");
-                MessageData.Decode_Attempt = "";
-            }
-            OutputField.text = MessageData.Decode_Attempt;
-            if (MessageData.Decode_Attempt.ToLower() == MessageData.CorrectText.ToLower())
-            {
-                CorrectDecode = true;
-            }
-        }
+        _runMachine.TestMachine();
     }
 }

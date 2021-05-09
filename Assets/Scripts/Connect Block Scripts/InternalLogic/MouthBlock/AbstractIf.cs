@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class AbstractIf : AbstractMouthBlock
 {
-    protected abstract bool letterIf(char letter);
+    protected abstract bool LetterIf(char letter);
 
-    public override LetterModifier totalAction { get => _getTotalAction; }
+    public override LetterModifier TotalAction { get => _getTotalAction; }
 
     public override string GetMyType()
     {
@@ -16,7 +16,7 @@ public abstract class AbstractIf : AbstractMouthBlock
     private char _getTotalAction(char letter)
     {
         LetterModifier childAction = ChildenActions();
-        if (letterIf(letter))
+        if (LetterIf(letter))
         {
             return childAction(letter);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChildHolder : MonoBehaviour
 {
-    float IfScale = 2.425f;
+    private float _ifScale = 2.425f;
 
     private List<AbstractBlock> _childBlockBacking = new List<AbstractBlock>();
     public List<AbstractBlock> ChildBlocks
@@ -12,10 +12,7 @@ public class ChildHolder : MonoBehaviour
         get { return _childBlockBacking; }
     }
 
-    [SerializeField]
     public float TotalCount => RecursiveChildrenCount() + 1;
-
-
     public void AddToList(AbstractBlock abstractBlock)
     {
         _childBlockBacking.Add(abstractBlock);
@@ -33,11 +30,6 @@ public class ChildHolder : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        //Count = ChildBlocks.Count;
-    }
-
     /// <summary>
     /// not so recursive anymore childcount. Ifs only hold one block now
     /// </summary>
@@ -53,7 +45,7 @@ public class ChildHolder : MonoBehaviour
             }
             else if (abstractBlock is ConditionalBlock)
             {
-                currNumber += IfScale;
+                currNumber += _ifScale;
             }
             else
             {

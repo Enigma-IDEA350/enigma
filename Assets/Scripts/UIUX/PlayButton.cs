@@ -57,6 +57,11 @@ public class PlayButton : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
+        TsunSomething();
+    }
+
+    private void TsunSomething()
+    {
         if (clicked == 1)
         {
             buttonCopy = topButton.transform.position;
@@ -98,30 +103,23 @@ public class PlayButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (true) // (clicked == 0)
+        clicked = 1;
+        complete = false;
+        timeLeft = staticTimeLeft;
+        RunMachine();
+        lightManager.Update();
+        foreach (WireSocket ws in wireSockets)
         {
+            ws.Update();
+        }
+        foreach (ButtonClicked bc in buttonClickeds)
+        {
+            bc.Update();
+        }
 
-            clicked = 1;
-            complete = false;
-            timeLeft = staticTimeLeft;
-            RunMachine();
-            lightManager.Update();
-            foreach (WireSocket ws in wireSockets)
-            {
-                ws.Update();
-            }
-            foreach (ButtonClicked bc in buttonClickeds)
-            {
-                bc.Update();
-            }
-
-            if (gameLogic.CorrectDecode)
-            {
-                Debug.Log("era)/");
-                winProtocal.Win();
-                Debug.Log("you've won");
-            }
-            else { Debug.Log("erre"); }
+        if (gameLogic.CorrectDecode)
+        {
+            winProtocal.Win();
         }
     }
 

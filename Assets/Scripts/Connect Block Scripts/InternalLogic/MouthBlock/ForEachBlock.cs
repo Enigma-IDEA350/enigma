@@ -52,7 +52,7 @@ public class ForEachBlock : AbstractMouthBlock
         SetMyFields();
     }
 
-    public override LetterModifier totalAction => _getTotalActionsChildren;
+    public override LetterModifier TotalAction => _getTotalActionsChildren;
 
 
     public string Map(string input)
@@ -87,7 +87,7 @@ public class ForEachBlock : AbstractMouthBlock
         {
             if (tempCharList[i] != char.Parse(" "))
             {
-                tempCharList[i] = totalAction(tempCharList[i]);
+                tempCharList[i] = TotalAction(tempCharList[i]);
             }
         }
 
@@ -103,10 +103,6 @@ public class ForEachBlock : AbstractMouthBlock
         return "ForeachBlock";
     }
 
-    public override LetterModifier ChildenActions()
-    {
-        throw new System.NotImplementedException();
-    }
 
     private void SetMyFields()
     {

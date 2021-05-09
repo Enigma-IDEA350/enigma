@@ -14,6 +14,6 @@ public class WinProtocal : MonoBehaviour
     IEnumerator WaitSeconds()
     {
         yield return new WaitForSeconds(1.5f);
-        gameLogic.wonAndWaited = true;
+        gameLogic.WonAndWaited = true;
     }
 }

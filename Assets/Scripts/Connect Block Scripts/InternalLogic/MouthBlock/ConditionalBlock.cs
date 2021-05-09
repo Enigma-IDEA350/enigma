@@ -22,7 +22,7 @@ public class ConditionalBlock : AbstractIf
     {
         return "IfBlock";
     }
-    protected override bool letterIf(char letter)
+    protected override bool LetterIf(char letter)
     {
 
         if (IfLetter.ToString() == "")

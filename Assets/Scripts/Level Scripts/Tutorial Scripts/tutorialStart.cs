@@ -35,7 +35,6 @@ public class tutorialStart : MonoBehaviour
     public void regularInit(string[] messages)
     {
         setDependencies();
-        GameObject.Find("next").SetActive(false);
         cycle.setText(messages);
         fadeinTutorial();
         next.setTranstion(StartGameplay);
@@ -43,6 +42,7 @@ public class tutorialStart : MonoBehaviour
 
     void StartGameplay()
     {
+        GameObject.Find("next").SetActive(false);
         utils.HideChatBubble(cycle);
         utils.SetBackgroundActive(true);
     }

@@ -12,11 +12,12 @@ public class WinProtocal : MonoBehaviour
     public void Win()
     {
         _utils.setMono(this);
-        ShowChat();
+        StartCoroutine(ShowChat());
     }
-    void ShowChat()
+    IEnumerator ShowChat()
     {
         cycle = GameObject.Find("Arrows for Cycle").GetComponent<cycle>();
+        yield return new WaitForSeconds(3f);
         Debug.Log(cycle);
         _utils.showChatBubble(cycle);
         cycle.setText(listsOfMessages.postArrowTutorial);

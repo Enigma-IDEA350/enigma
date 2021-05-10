@@ -7,9 +7,6 @@ public class ResultSounds : MonoBehaviour
     public bool correctAnswer;
     private bool soundPlayed;
     Utils utils = new Utils();
-    cycle cycle = GameObject.Find("Arrows for Cycle").GetComponent<cycle>();
-
-
     bool showChat = false;
 
     public bool clicked;
@@ -28,24 +25,12 @@ public class ResultSounds : MonoBehaviour
         playButton = FindObjectOfType<PlayButton>();
         clicked = false;
         soundPlayed = false;
-        utils.setMono(this);
-
-
     }
-    void Chat()
-    {
-
-        message = GameObject.Find("ChatBubble").GetComponent<ChatBubble>();
-        message.begin(listsOfMessages.postArrowTutorial);
-    }
-
     IEnumerator Win()
     {
         Debug.Log("Play sound");
         yield return new WaitForSeconds(.4f);
         SoundManager.PlaySound(SoundManager.Sound.Winning);
-        utils.showChatBubble(cycle);
-        Chat();
     }
 
     // Update is called once per frame

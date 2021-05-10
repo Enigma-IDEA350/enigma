@@ -88,7 +88,7 @@ public class TutorialTwo : MonoBehaviour
     {
         utils.ActiveRead(true);
         GameObject.Find("arrow").SetActive(false);
-        GameObject.Find("Arrows for Cycle").SetActive(false);
+        GameObject.Find("next").SetActive(false);
         cycle.blockNext("Click on WRITE Block");
         tutorialVerifier.verifyReadMade();
         next.setTranstion(play);
@@ -98,7 +98,7 @@ public class TutorialTwo : MonoBehaviour
         cycle.blockNext("Connect WRITE block under SHIFT block and press the PLAY Button!");
         tutorialVerifier.verifyReadConnected();
         GameObject button = GameObject.Find("Play Button");
-
+        cycle.Clear();
         foreach (var component in button.GetComponents<Component>())
         {
             if (component.GetType().ToString() != "UnityEngine.SpriteRenderer" && component.GetType().ToString() != "UnityEngine.Transform")

@@ -18,21 +18,15 @@ public class Arrow : MonoBehaviour
 
     public void Show()
     {
-        _arrow = true;
-        _unArrow = false;
-        _fadeSpeed = 2 * Time.deltaTime;
-        enabled = true;
-
+        _utils.FadeIn(GameObject.Find("arrow").GetComponent<SpriteRenderer>());
     }
     public void Hide()
     {
-        _unArrow = true;
-        _arrow = false;
-        _fadeSpeed = 2 * Time.deltaTime;
-        enabled = true;
+        _utils.FadeOut(GameObject.Find("arrow").GetComponent<SpriteRenderer>());
     }
     void Start()
     {
+        _utils.setMono(this);
         _listOfPositions = GameObject.Find("Tutorial Positions").GetComponentsInChildren<Transform>();
         List<Transform> lst = new List<Transform>();
         lst.AddRange(_listOfPositions);
@@ -74,7 +68,5 @@ public class Arrow : MonoBehaviour
         {
             transform.forward += _rotNormalized * _speed;
         }
-        if (_arrow) _utils.FadeIn(GameObject.Find("_arrow").GetComponent<SpriteRenderer>());
-        if (_unArrow) _utils.FadeOut(GameObject.Find("_arrow").GetComponent<SpriteRenderer>());
     }
 }

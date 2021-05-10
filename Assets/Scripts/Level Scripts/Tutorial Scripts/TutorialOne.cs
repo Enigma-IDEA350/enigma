@@ -97,9 +97,9 @@ public class TutorialOne : MonoBehaviour
 
     void play()
     {
-        GameObject.Find("Arrows for Cycle").SetActive(false);
+        GameObject.Find("next").SetActive(false);
         GameObject button = GameObject.Find("Play Button");
-
+        cycle.Clear();
         foreach (var component in button.GetComponents<Component>())
         {
             if (component.GetType().ToString() != "UnityEngine.SpriteRenderer" && component.GetType().ToString() != "UnityEngine.Transform")

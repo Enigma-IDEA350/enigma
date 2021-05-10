@@ -3,7 +3,6 @@ using UnityEngine;
 
 public static class SoundManager
 {
-
     public enum Sound
     {
         MainMenuMusic,
@@ -19,8 +18,22 @@ public static class SoundManager
         Dial
     }
 
-    public static void PlayBackgroundMusic(Sound sound)
+    public static void PlayBackgroundMusic()
     {
+        bool soundExists = false;
+        AudioSource[] sounds = Object.FindObjectsOfType<AudioSource>();
+        foreach (AudioSource item in sounds)
+        {
+            if (item.clip == GetAudioClip(Sound.LevelSelectionMusic) && !item.isPlaying) { item.Play(); soundExists = true; }
+        }
+        if (!soundExists)
+        {
+            GameObject soundGameObject = new GameObject("Background Music");
+            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+            audioSource.clip = GetAudioClip(Sound.LevelSelectionMusic);
+            audioSource.Play();
+            Object.DontDestroyOnLoad(soundGameObject);
+        }
 
     }
     public static void PlaySound(Sound sound)
@@ -78,6 +91,4 @@ public static class SoundManager
         }
         return null;
     }
-
-
 }

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SpriteButton : MonoBehaviour, IPointerClickHandler
+public class SpriteButton : MonoBehaviour
 {
     public Transition transition;
     public Animator animator;
@@ -18,10 +18,9 @@ public class SpriteButton : MonoBehaviour, IPointerClickHandler
         animator = GameObject.Find("Transition").GetComponent<Animator>();
         transition = GameObject.FindObjectOfType<Transition>();
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnMouseDown()
     {
         SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
-
         transition.LoadLevel("LevelSelection");
         //SceneManager.LoadScene("LevelSelection");
     }

@@ -17,12 +17,6 @@ public class tutorialStart : MonoBehaviour
     Arrow arrow;
     Utils utils = new Utils();
 
-    void Update()
-    {
-        if (chatBubble) utils.showChatBubble();
-        else if (unChatBubble) utils.HideChatBubble();
-    }
-
     public void tutorialInit(string[] initText, List<string[]> listOfMessages, int level)
     {
         setDependencies();
@@ -48,12 +42,13 @@ public class tutorialStart : MonoBehaviour
 
     void StartGameplay()
     {
-        hideChatBubble();
+        utils.HideChatBubble(cycle);
         utils.SetBackgroundActive(true);
 
     }
     void setDependencies()
     {
+        utils.setMono(this);
         tutorialOne = GetComponent<TutorialOne>();
         tutorialTwo = GetComponent<TutorialTwo>();
         arrow = GameObject.Find("arrow").GetComponent<Arrow>();
@@ -72,39 +67,21 @@ public class tutorialStart : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         setTutorial();
-        showChatBubble();
+        utils.showChatBubble(cycle);
         cycle.runStart();
 
     }
     public void setTutorial()
     {
         tutorialGroup.SetActive(true);
+        GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = false;
         SpriteRenderer[] spriteItems = tutorialGroup.GetComponentsInChildren<SpriteRenderer>();
-        Image[] buttonItems = tutorialGroup.GetComponentsInChildren<Image>();
+
         foreach (SpriteRenderer item in spriteItems)
         {
             Color c = new Color(item.color.r, item.color.g, item.color.b, 0);
             item.color = c;
         }
-    }
-
-    void showChatBubble()
-    {
-        chatBubble = true;
-        unChatBubble = false;
-    }
-
-    IEnumerator hideChatDelay()
-    {
-        unChatBubble = true;
-        chatBubble = false;
-        yield return new WaitForSeconds(2);
-        unChatBubble = false;
-    }
-
-    void hideChatBubble()
-    {
-        StartCoroutine(hideChatDelay());
     }
 
 }

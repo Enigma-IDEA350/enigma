@@ -30,7 +30,7 @@ public class MakeBlock : MonoBehaviour
 
         if (!tooManyBlocks && !onlyOne)
         {
-            SoundManager.PlaySoundOnce(SoundManager.Sound.BlockSnap);
+            SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
             Vector3 center = GameObject.Find("Bounds").transform.position;
             center.z = -(0.1f);
 

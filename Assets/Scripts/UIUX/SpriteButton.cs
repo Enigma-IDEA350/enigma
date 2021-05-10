@@ -20,7 +20,7 @@ public class SpriteButton : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        SoundManager.PlaySoundOnce(SoundManager.Sound.BlockSnap);
+        SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
 
         transition.LoadLevel("LevelSelection");
         //SceneManager.LoadScene("LevelSelection");

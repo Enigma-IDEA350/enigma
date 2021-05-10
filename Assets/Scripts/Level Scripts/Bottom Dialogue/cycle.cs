@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class cycle : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class cycle : MonoBehaviour
     public void setText(string[] text) { texts = text; }
 
     public List<string[]> getGroup() { return group; }
+    public string[] getTexts() { return texts; }
 
     public void runStart()
     {
@@ -31,11 +33,14 @@ public class cycle : MonoBehaviour
         currentSlide = 0;
         messages.begin(texts);
     }
-    public void runStart2()
+
+    public void Clear()
     {
-        currentSlide = 0;
-        messages.begin(texts);
+        setText(null);
+        setMessageGroup(null);
+        GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().text = "";
     }
+
     public void runStartGroup()
     {
         texts = group[0];

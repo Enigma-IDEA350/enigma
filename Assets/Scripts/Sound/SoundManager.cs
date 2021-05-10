@@ -23,19 +23,22 @@ public static class SoundManager
     {
 
     }
-    public static void PlaySoundOnce(Sound sound)
-    {
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.volume = .4f;
-        audioSource.PlayOneShot(GetAudioClip(sound));
-    }
     public static void PlaySound(Sound sound)
     {
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.clip = GetAudioClip(sound);
-        audioSource.Play();
+        bool soundExists = false;
+        AudioSource[] sounds = Object.FindObjectsOfType<AudioSource>();
+        foreach (AudioSource item in sounds)
+        {
+            if (item.clip == GetAudioClip(sound)) { item.Play(); soundExists = true; }
+        }
+        if (!soundExists)
+        {
+            GameObject soundGameObject = new GameObject("Sound");
+            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+            audioSource.volume = .4f;
+            audioSource.clip = GetAudioClip(sound);
+            audioSource.Play();
+        }
     }
     public static void StopSound(Sound sound)
     {

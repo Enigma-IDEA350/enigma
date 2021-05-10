@@ -1,48 +1,50 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class Utils
-{
 
-    public void FadeIn(SpriteRenderer item, float speed)
+{
+    MonoBehaviour mono;
+
+    public void setMono(MonoBehaviour monoBehaviour)
     {
-        if (item.color.a < 255)
+        mono = monoBehaviour;
+    }
+
+    public void FadeIn(SpriteRenderer item)
+    {
+        IEnumerator fade()
         {
+            yield return new WaitForSeconds(.1f);
             Color objectColor = item.color;
-            float fadeAmount = objectColor.a + (speed * Time.deltaTime);
+            float fadeAmount = objectColor.a + 5;
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
             item.color = objectColor;
         }
-    }
-    public void FadeOut(SpriteRenderer item, float speed)
-    {
-        if (item.color.a > 0)
+
+        while (item.color.a != 255)
         {
+            mono.StartCoroutine(fade());
+            return;
+        }
+
+    }
+    public void FadeOut(SpriteRenderer item)
+    {
+        IEnumerator fade()
+        {
+            yield return new WaitForSeconds(.1f);
             Color objectColor = item.color;
-            float fadeAmount = objectColor.a - (speed);
+            float fadeAmount = objectColor.a - 5;
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
             item.color = objectColor;
         }
-    }
-    public void FadeInBttn(Image item, float speed)
-    {
-        if (item.color.a < 255)
+
+        while (item.color.a != 0)
         {
-            Color objectColor = item.color;
-            float fadeAmount = objectColor.a + (speed * Time.deltaTime);
-            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            item.color = objectColor;
-        }
-    }
-    public void FadeOutBttn(Image item, float speed)
-    {
-        if (item.color.a > 0)
-        {
-            Color objectColor = item.color;
-            float fadeAmount = objectColor.a - (speed);
-            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            item.color = objectColor;
+            mono.StartCoroutine(fade());
+            return;
         }
     }
 
@@ -76,32 +78,33 @@ public class Utils
 
         }
     }
-    public void showChatBubble()
+    public void showChatBubble(cycle cycle)
     {
-        bool chatBubble = true;
-        if (chatBubble)
+        SpriteRenderer[] spriteItems = GameObject.Find("Tutorial Dialogue").GetComponentsInChildren<SpriteRenderer>();
+        IEnumerator fadeInChat()
         {
-            SpriteRenderer[] spriteItems = GameObject.Find("Tutorial Dialogue").GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer item in spriteItems)
             {
-                if (item.gameObject.name != "Background") FadeIn(item, 3f);
+                if (item.gameObject.name != "Background") FadeIn(item);
             }
+            yield return new WaitForSeconds(.2f);
+            GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = true;
+            if (cycle.getTexts() != null) cycle.runStart();
         }
-        GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = true;
 
-
+        mono.StartCoroutine(fadeInChat());
 
     }
 
-    public void HideChatBubble()
+    public void HideChatBubble(cycle cycle)
 
     {
         SpriteRenderer[] spriteItems = GameObject.Find("Tutorial Dialogue").GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer item in spriteItems)
         {
-            FadeOut(item, 3f);
+            if (item.gameObject.name != "Background") FadeOut(item);
         }
-        GameObject.Find("Tutorial Dialogue").GetComponentInChildren<TMP_Text>().enabled = false;
+        cycle.Clear();
     }
     public void ActiveFor(bool isActive)
     {

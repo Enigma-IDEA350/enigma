@@ -74,7 +74,7 @@ public class Arrow : MonoBehaviour
         {
             transform.forward += _rotNormalized * _speed;
         }
-        if (_arrow) _utils.FadeIn(GameObject.Find("_arrow").GetComponent<SpriteRenderer>(), 1);
-        if (_unArrow) _utils.FadeOut(GameObject.Find("_arrow").GetComponent<SpriteRenderer>(), 1);
+        if (_arrow) _utils.FadeIn(GameObject.Find("_arrow").GetComponent<SpriteRenderer>());
+        if (_unArrow) _utils.FadeOut(GameObject.Find("_arrow").GetComponent<SpriteRenderer>());
     }
 }

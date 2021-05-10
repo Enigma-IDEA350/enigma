@@ -157,7 +157,7 @@ public class ActionSnap : MonoBehaviour
 
     private void snapToBottom(Vector2 newpos, Vector2 oldpos)
     {
-        SoundManager.PlaySoundOnce(SoundManager.Sound.BlockSnap);
+        SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
         Vector2 absmove = newpos - oldpos;
         transform.Translate(absmove);
 

@@ -98,7 +98,6 @@ public class GameLogic : MonoBehaviour
         }
 
 
-        Debug.Log(complete);
         if (wonAndWaited) //&& complete)
         {
             if (MessageData.CurrLevel == 9)

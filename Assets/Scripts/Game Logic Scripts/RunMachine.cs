@@ -4,7 +4,9 @@ using UnityEngine;
 using TMPro;
 
 /*
-runs the for each, theo 
+runs the for each, theo
+
+TEST
 */
 public class RunMachine : MonoBehaviour
 {

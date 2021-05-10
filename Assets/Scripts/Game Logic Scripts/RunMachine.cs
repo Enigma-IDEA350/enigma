@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+runs the for each, theo 
+*/
 public class RunMachine : MonoBehaviour
 {
     public bool BlockErrors = false;

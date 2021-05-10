@@ -17,6 +17,15 @@ public class next : MonoBehaviour
 
     void OnMouseDown()
     {
-        cycle.Next(transtion);
+        AudioSource[] sounds = GameObject.FindObjectsOfType<AudioSource>();
+        bool isTyping = false;
+        foreach (AudioSource sound in sounds)
+        {
+            if (sound.clip == SoundManager.GetAudioClip(SoundManager.Sound.LaptopClicking))
+            {
+                isTyping = sound.isPlaying ? true : false;
+            }
+        }
+        if (!isTyping) cycle.Next(transtion);
     }
 }

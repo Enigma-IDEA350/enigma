@@ -15,7 +15,6 @@ public class MakeBlock : MonoBehaviour
 
     [SerializeField] private GameObject block;
     ErrorHandler errorHandler;
-    AudioSource snapSound;
     public void setOnlyOne(bool one)
     {
         onlyOne = one;
@@ -31,6 +30,7 @@ public class MakeBlock : MonoBehaviour
 
         if (!tooManyBlocks && !onlyOne)
         {
+            SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
             Vector3 center = GameObject.Find("Bounds").transform.position;
             center.z = -(0.1f);
 
@@ -58,11 +58,11 @@ public class MakeBlock : MonoBehaviour
         }
         else if (onlyOne)
         {
-            errorHandler.raiseError("There can only be one of this block!");
+            errorHandler.RaiseError("There can only be one of this block!");
         }
         else
         {
-            errorHandler.raiseError("Too many Blocks!");
+            errorHandler.RaiseError("Too many Blocks!");
         }
 
 

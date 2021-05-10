@@ -34,11 +34,11 @@ public class DragandDrop : MonoBehaviour
     void Drag()
     {
         if (snap == null)
-        { 
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        transform.Translate(mousePosition);
-        remainInBounds();
-        if (!tutorialLevels.Contains(levelInfo.CurrLevel)) trashFun.trashProxChecker(this.gameObject, trashBin);
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            transform.Translate(mousePosition);
+            remainInBounds();
+            if (!tutorialLevels.Contains(levelInfo.CurrLevel)) trashFun.trashProxChecker(this.gameObject, trashBin);
         }
 
         else if (snap != null && snap.isOpen())
@@ -53,7 +53,7 @@ public class DragandDrop : MonoBehaviour
     void OnMouseDown()
     {
         if (snap != null && snap.isTopConnected() && snap.isOpen()) { snap.disconnect(); }
-        else if (snap != null && !snap.isOpen()) { errorHandler.raiseError("You can't move this because there are blocks under it"); }
+        else if (snap != null && !snap.isOpen()) { errorHandler.RaiseError("You can't move this because there are blocks under it"); }
 
     }
 

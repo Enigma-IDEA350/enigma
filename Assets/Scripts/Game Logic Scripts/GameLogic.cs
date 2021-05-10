@@ -45,11 +45,11 @@ public class GameLogic : MonoBehaviour
         errorHandler = FindObjectOfType<ErrorHandler>();
         blockButtonGreyout = GetComponent<BlockButtonGreyout>();
         _runMachine = GetComponent<RunMachine>();
-        
+
         InputField.text = MessageData.Code;
         OutputField.text = "";
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToArray();
-        
+
 
         //setting the maker blocks to on or off based on our scriptable object
         blockButtonGreyout.ForeachOn(MessageData.ForOn);
@@ -135,8 +135,8 @@ public class GameLogic : MonoBehaviour
 
     public void RaiseError(string error)
     {
-        errorHandler.raiseError(error);
         _runMachine.BlockErrors = true;
+        errorHandler.RaiseError(error);
     }
 
     public void TestMachine()

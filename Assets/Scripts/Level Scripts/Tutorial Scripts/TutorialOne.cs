@@ -21,9 +21,9 @@ public class TutorialOne : MonoBehaviour
         next.setTranstion(forTranstiontion);
         tutorialVerifier.verifyForMade();
         cycle.blockNext("Click on the FOR block");
-        arrow.startArrowAt(position);
-        arrow.show();
-        utils.activeFor(true);
+        arrow.StartArrowAt(position);
+        arrow.Show();
+        utils.ActiveFor(true);
         cycle.runStartGroup();
     }
 
@@ -52,8 +52,8 @@ public class TutorialOne : MonoBehaviour
 
     void shiftTranstion()
     {
-        arrow.nextArrow();
-        utils.activeShift(true);
+        arrow.NextArrow();
+        utils.ActiveShift(true);
         cycle.blockNext("Click on SHIFT block!");
         tutorialVerifier.verifyShiftMade();
         next.setTranstion(shiftMadeTrasition);
@@ -77,8 +77,8 @@ public class TutorialOne : MonoBehaviour
     }
     void readTransition()
     {
-        utils.activeRead(true);
-        arrow.nextArrow();
+        utils.ActiveRead(true);
+        arrow.NextArrow();
         cycle.blockNext("Click on WRITE Block");
         tutorialVerifier.verifyReadMade();
         next.setTranstion(readMadeTrasition);
@@ -89,7 +89,7 @@ public class TutorialOne : MonoBehaviour
     }
     void ReadConnectedTranstion()
     {
-        arrow.hide();
+        arrow.Hide();
         cycle.blockNext("Connect WRITE block under SHIFT block");
         tutorialVerifier.verifyReadConnected();
         next.setTranstion(play);
@@ -97,9 +97,9 @@ public class TutorialOne : MonoBehaviour
 
     void play()
     {
-        GameObject.Find("Arrows for Cycle").SetActive(false);
+        GameObject.Find("next").SetActive(false);
         GameObject button = GameObject.Find("Play Button");
-
+        cycle.Clear();
         foreach (var component in button.GetComponents<Component>())
         {
             if (component.GetType().ToString() != "UnityEngine.SpriteRenderer" && component.GetType().ToString() != "UnityEngine.Transform")

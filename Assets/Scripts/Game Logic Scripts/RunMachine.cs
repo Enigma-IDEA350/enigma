@@ -62,7 +62,7 @@ public class RunMachine : MonoBehaviour
             }
             else
             {
-                errorHandler.raiseError("You are missing a WRITE block");
+                errorHandler.RaiseError("You are missing a WRITE block");
                 gameLogic.MessageData.Decode_Attempt = "";
             }
             outputField.text = gameLogic.MessageData.Decode_Attempt;
@@ -77,6 +77,6 @@ public class RunMachine : MonoBehaviour
     public void RaiseError(string error)
     {
         BlockErrors = true;
-        errorHandler.raiseError(error);
+        errorHandler.RaiseError(error);
     }
 }

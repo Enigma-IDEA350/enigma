@@ -44,7 +44,7 @@ public class TutorialVerifierOne : MonoBehaviour
                 forMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeFor(false);
+                utils.ActiveFor(false);
                 next.triggerNext();
             }
         }
@@ -69,7 +69,7 @@ public class TutorialVerifierOne : MonoBehaviour
                 shiftMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeShift(false);
+                utils.ActiveShift(false);
                 next.triggerNext();
             }
         }
@@ -94,7 +94,7 @@ public class TutorialVerifierOne : MonoBehaviour
                 readMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeRead(false);
+                utils.ActiveRead(false);
                 next.triggerNext();
             }
         }

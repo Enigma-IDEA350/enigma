@@ -12,7 +12,6 @@ public class ChatBubble : MonoBehaviour
     public SpriteRenderer backgroundSpriteRenderer; // text box bg
     public TMP_Text tmp; // text
     private ChatManager.ChatManagerInstance chatManagerInstance; // functionality for chat bubble
-    private AudioSource keyboard; // sound
     public GameLogic gameLogic;
     public int sceneNumber;
     public int currMessageIndex;
@@ -24,7 +23,6 @@ public class ChatBubble : MonoBehaviour
     {
         backgroundSpriteRenderer = gameObject.transform.Find("Background").GetComponent<SpriteRenderer>();
         tmp = gameObject.transform.Find("Text").GetComponent<TMP_Text>();
-        keyboard = transform.Find("Sound").GetComponent<AudioSource>();
         clicked = false;
         speed = 0.05f;
     }
@@ -111,13 +109,13 @@ public class ChatBubble : MonoBehaviour
     private void stopSound()
     // stop playing sound
     {
-        keyboard.Stop();
+        SoundManager.StopSound(SoundManager.Sound.LaptopClicking);
     }
 
     private void startSound()
     // play sound
     {
-        keyboard.Play();
+        SoundManager.PlaySound(SoundManager.Sound.LaptopClicking);
     }
 
     public void Setup(string text)

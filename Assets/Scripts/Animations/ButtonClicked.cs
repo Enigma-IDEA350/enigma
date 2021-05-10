@@ -1,52 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ButtonClicked : MonoBehaviour
 {
-    public Animator m_Animator;
-    public float timer;
-    public bool timerReached;
-    public bool animated;
-
-    public PlayButton playButton;
-    public GameLogic gameLogic;
-    public WireSocket wireSocket;
+    private Animator _animator;
+    private float _timer;
+    private bool _timerReached;
+    private bool _animated;
+    private PlayButton _playButton;
+    private GameLogic _gameLogic;
+    private WireSocket _wireSocket;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Animator = gameObject.GetComponent<Animator>();
-        timer = 0f;
-        timerReached = false;
-        animated = false;
-        playButton = FindObjectOfType<PlayButton>();
-        gameLogic = FindObjectOfType<GameLogic>();
-        wireSocket = FindObjectOfType<WireSocket>();
+        _animator = gameObject.GetComponent<Animator>();
+        _timer = 0f;
+        _timerReached = false;
+        _animated = false;
+        _playButton = FindObjectOfType<PlayButton>();
+        _gameLogic = FindObjectOfType<GameLogic>();
+        _wireSocket = FindObjectOfType<WireSocket>();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (playButton != null)
+        if (_playButton != null)
         {
-            if (playButton.clicked == 1)
-            {                
-                if (gameLogic.CorrectDecode)
+            if (_playButton.clicked == 1)
+            {
+                if (_gameLogic.CorrectDecode)
                 {
-//                    Debug.Log("tsun");
-                    m_Animator.Play("Base Layer.Move Wire");
+                    _animator.Play("Base Layer.Move Wire");
                 }
-                if (!gameLogic.CorrectDecode) {
-                    m_Animator.SetBool("ButtonClicked", true);
-                    m_Animator.Play("Base Layer.Move Wire 1");                   
+                if (!_gameLogic.CorrectDecode)
+                {
+                    _animator.SetBool("ButtonClicked", true);
+                    _animator.Play("Base Layer.Move Wire 1");
                 }
-                //m_Animator.SetFloat("Direction", 1.5f);
-
-                //animated = true;
-                //m_Animator.SetBool("ButtonClicked", true);
-
-                //animated = false;
             }
         }
     }

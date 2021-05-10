@@ -218,12 +218,11 @@ GameObject:
   - component: {fileID: 5007669913833849383}
   - component: {fileID: 5599904928781718817}
   - component: {fileID: 9019252063440506239}
-  - component: {fileID: 3607455559621023952}
   - component: {fileID: 3239616263270957037}
   - component: {fileID: 7111381233823605954}
   - component: {fileID: 8539380797863493947}
   - component: {fileID: 615374121174788602}
-  - component: {fileID: 1720837931959551436}
+  - component: {fileID: 8875473744355802137}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -258,8 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb26a52e8ced344e0a84f2afc268d3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  transitionDelayTime: 1
 --- !u!114 &5599904928781718817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,18 +279,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce3829303ac434141b43495956decfcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3607455559621023952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5007669913833849377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0cb089a31dfc147806d3b57b93c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3239616263270957037
@@ -344,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cdba1b60007254fb32d521d8a32915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1720837931959551436
+--- !u!114 &8875473744355802137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,6 +338,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5007669913833849377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba637c19cf764b43b20e017699e3e03, type: 3}
+  m_Script: {fileID: 11500000, guid: 107c5679de46aaa449566d6b1cde619b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundAudioClipsArray:
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: de214405d81a0470283e02c3484cc423, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: f94d1017126aa4c43aac782ac4b5d0b3, type: 3}
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: b229291447e8b40458f6fb956ecb9f66, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 0a2241f6d119e426099234ab6112ed60, type: 3}
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: a13a9dc9d2115482c812a153c4cde1b8, type: 3}
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: 8d7c80d609b2f4634a66198a58a28cb5, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: c64bb0952cff94787a289b2880b6da58, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 7d3e4a48dbfb041fa9680179ab13afcb, type: 3}
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: c783cd30b1c75466f979bf4003c70536, type: 3}
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: b45fb7e125c5749299b52887adbe7d12, type: 3}
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: 862cb00613afb4bf891b20c43ea26cf7, type: 3}

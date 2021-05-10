@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ResultSounds : MonoBehaviour
 {
-    public AudioSource winnerSound;
     public bool correctAnswer;
     private bool soundPlayed;
     Utils utils = new Utils();
-
     bool showChat = false;
 
     public bool clicked;
@@ -27,24 +25,12 @@ public class ResultSounds : MonoBehaviour
         playButton = FindObjectOfType<PlayButton>();
         clicked = false;
         soundPlayed = false;
-        winnerSound = GameObject.Find("winnerSound").GetComponent<AudioSource>();
-
-
     }
-    IEnumerator Chat()
-    {
-        yield return new WaitForSeconds(3f);
-        message = GameObject.Find("ChatBubble").GetComponent<ChatBubble>();
-        message.begin(listsOfMessages.postArrowTutorial);
-    }
-
     IEnumerator Win()
     {
         Debug.Log("Play sound");
         yield return new WaitForSeconds(.4f);
-        winnerSound.Play();
-        showChat = true;
-        StartCoroutine(Chat());
+        SoundManager.PlaySound(SoundManager.Sound.Winning);
     }
 
     // Update is called once per frame
@@ -62,7 +48,6 @@ public class ResultSounds : MonoBehaviour
             StartCoroutine(Win());
             soundPlayed = true;
         }
-        if (showChat) { utils.showChatBubble(); }
 
     }
 }

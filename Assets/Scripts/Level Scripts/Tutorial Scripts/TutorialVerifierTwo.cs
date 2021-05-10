@@ -48,7 +48,7 @@ public class TutorialVerifierTwo : MonoBehaviour
                 forMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeFor(false);
+                utils.ActiveFor(false);
                 next.triggerNext();
             }
         }
@@ -74,7 +74,7 @@ public class TutorialVerifierTwo : MonoBehaviour
                 ifMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeIf(false);
+                utils.ActiveIf(false);
                 next.triggerNext();
             }
         }
@@ -99,7 +99,7 @@ public class TutorialVerifierTwo : MonoBehaviour
                 switchMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeSwitch(false);
+                utils.ActiveSwitch(false);
                 next.triggerNext();
             }
         }
@@ -124,7 +124,7 @@ public class TutorialVerifierTwo : MonoBehaviour
                 readMade = false;
                 enabled = false;
                 cycle.allowNext();
-                utils.activeRead(false);
+                utils.ActiveRead(false);
                 next.triggerNext();
             }
         }

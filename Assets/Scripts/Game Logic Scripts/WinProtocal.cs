@@ -16,11 +16,14 @@ public class WinProtocal : MonoBehaviour
     }
     IEnumerator ShowChat()
     {
+        _gameLogic = FindObjectOfType<GameLogic>();
+        Message_SO levelInfo = _gameLogic.MessageData;
+        List<int> tutorialLevels = new List<int> { 1, 4 };
         cycle = GameObject.Find("Arrows for Cycle").GetComponent<cycle>();
         yield return new WaitForSeconds(3f);
-        Debug.Log(cycle);
         _utils.showChatBubble(cycle);
-        cycle.setText(listsOfMessages.postArrowTutorial);
+        if (tutorialLevels.Contains(levelInfo.CurrLevel)) cycle.setText(listsOfMessages.winTutorial);
+        else cycle.setText(listsOfMessages.winRegular);
         StartCoroutine(WaitSeconds());
     }
 

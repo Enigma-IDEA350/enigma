@@ -7,6 +7,20 @@ public class ListsOfMessages
         "Welcome to your computer!",
         "We have found enemy messages written in a secret language!",
         "And we need you to decode them!",
+        "First, a tour of your computer."
+    };
+    string[] tourScreens = new string[] {
+        "These are your main screens.",
+        "The top screen will show the secret message",
+        "The bottom screen will show your decoded message",
+    };
+    string[] tourPlay = new string[] {
+        "This is the PLAY button",
+        "Click on this button to show your decoded message",
+    };
+    string[] tourTrash = new string[] {
+        "This is the Trash Can",
+        "If you've made a mistake, just drag your blocks to the trash can! "
     };
 
     string[] writeBlockStart = new string[] {
@@ -45,13 +59,19 @@ public class ListsOfMessages
     string[] shiftBlockConnect = new string[]{
         "Try dragging it inside the FOR block",
     };
-    public string[] postArrowTutorial = new string[] {
+    public string[] winTutorial = new string[] {
         "CONGRATULATIONS! You have beaten the test. Press any key to continue..."
+    };
+
+    public string[] winRegular = new string[] {
+        "CONGRATULATIONS! Press any key to continue..."
     };
 
     public List<string[]> firstGroupOfTutorialMessages()
     {
         List<string[]> group = new List<string[]>();
+        group.Add(tourScreens);
+        group.Add(tourPlay);
         group.Add(startFor);
         group.Add(forBlock);
         group.Add(endFor);

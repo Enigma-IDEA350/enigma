@@ -6,16 +6,9 @@ public class ResultSounds : MonoBehaviour
 {
     public bool correctAnswer;
     private bool soundPlayed;
-    Utils utils = new Utils();
-    bool showChat = false;
-
     public bool clicked;
     public PlayButton playButton;
     public GameLogic gameLogic;
-    private ListsOfMessages listsOfMessages = new ListsOfMessages();
-
-
-    ChatBubble message;
 
     private void Start()
     {
@@ -28,7 +21,6 @@ public class ResultSounds : MonoBehaviour
     }
     IEnumerator Win()
     {
-        Debug.Log("Play sound");
         yield return new WaitForSeconds(.4f);
         SoundManager.PlaySound(SoundManager.Sound.Winning);
     }
@@ -44,7 +36,6 @@ public class ResultSounds : MonoBehaviour
 
         if (clicked && correctAnswer && !soundPlayed)
         {
-            Debug.Log("Player Won");
             StartCoroutine(Win());
             soundPlayed = true;
         }

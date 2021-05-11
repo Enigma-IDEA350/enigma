@@ -29,12 +29,8 @@ public class BlockButtonGreyout : MonoBehaviour
     private GameObject ReadGrey;
 
 
-   
-    public void ForeachOn(bool yes)
-    {
-        if (yes){ForEach.SetActive(true); ForEachGrey.SetActive(false);}
-        else{ForEach.SetActive(false);ForEachGrey.SetActive(true);}
-    }
+
+
     public void IfOn(bool yes)
     {
         if (yes) { If.SetActive(true); IfGrey.SetActive(false); }

@@ -36,12 +36,11 @@ public class GameStateReset : MonoBehaviour
     {
         foreach (Message_SO message_SO in message_SOs)
         {
-            Debug.Log("hell");
             message_SO.Decode_Attempt = "";
         }
         levelWinArray_SO.ResetLevels();
 
-        
+
     }
 
 

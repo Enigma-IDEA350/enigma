@@ -61,7 +61,6 @@ public class ActionSnap : MonoBehaviour
     }
     private void isClose(float minDistance)
     {
-        Debug.Log("frean");
         Vector3 recOfCurrent = transform.tag == "ActionBlock" ? transform.Find("opening").position : transform.Find("outer_opening").position;
         if (!topConnected)
         {
@@ -76,7 +75,6 @@ public class ActionSnap : MonoBehaviour
                     {
                         if (block.GetComponent<AbstractBlock>().GetMyParent() != null)
                         {
-                            Debug.Log("close");
                             blockAbove = tempBlockAbove;
                             transform.GetComponent<ConnectBlock>().ConnectMeTo(block.GetComponent<AbstractBlock>());
                             snapToBottom(conofBlock, recOfCurrent);
@@ -92,7 +90,6 @@ public class ActionSnap : MonoBehaviour
 
         foreach (GameObject block in blocks.getMouthBlocks())
         {
-            Debug.Log("Mouth");
             Vector2 conofBlock = block.transform.Find("connector").position;
 
             if (block.GetComponent<ChildHolder>().ChildBlocks.Count == 0 && Vector3.Distance(conofBlock, recOfCurrent) <= minDistance && transform.parent != block.transform)
@@ -103,7 +100,6 @@ public class ActionSnap : MonoBehaviour
                 topConnected = true;
             }
         }
-        Debug.Log(blockAbove == null);
         if (blockAbove == null)
         {
             foreach (GameObject block in blocks.getHybridBlocks())
@@ -111,7 +107,6 @@ public class ActionSnap : MonoBehaviour
 
                 if (block != this.gameObject)
                 {
-                    Debug.Log("hello");
                     Vector2 conofBlock = block.transform.Find("connector").position;
                     Vector2 outerConofBlock = block.transform.Find("outer_connector").position;
 
@@ -127,14 +122,12 @@ public class ActionSnap : MonoBehaviour
                             topConnected = true;
                             InsideIfBlock = true;
                             blockAbove.BlockInsideMeIf = true;
-                            Debug.Log("inner");
                         }
                     }
 
 
                     else if (Vector3.Distance(recOfCurrent, outerConofBlock) <= minDistance && block.GetComponent<ActionSnap>().isOpen() && block.transform.parent != null)
                     {
-                        Debug.Log("fret");
                         if (true)//(block.GetComponent<AbstractBlock>().GetMyParent() != null)
                         {
                             blockAbove = block.GetComponent<ActionSnap>();
@@ -143,11 +136,9 @@ public class ActionSnap : MonoBehaviour
                             transform.parent = block.transform.parent;
                             topConnected = true;
                             blockAbove.bottomConnected = true;
-                            Debug.Log("outer");
                         }
                     }
                 }
-                Debug.Log(blockAbove == null);
 
             }
         }

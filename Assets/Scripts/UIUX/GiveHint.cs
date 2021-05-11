@@ -20,7 +20,6 @@ public class GiveHint : MonoBehaviour
 
     public void PassHint()
     {
-        Debug.Log("fimil");
         RaiseHint(LevelData.hint);
     }
 

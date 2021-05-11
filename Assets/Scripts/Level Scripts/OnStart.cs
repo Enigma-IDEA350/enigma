@@ -11,7 +11,6 @@ public class OnStart : MonoBehaviour
     void Start()
     {
         _gameLogic = FindObjectOfType<GameLogic>();
-        Debug.Log(_gameLogic == null);
         _levelInfo = _gameLogic.MessageData;
         List<int> tutorialLevels = new List<int> { 1, 4 };
         _tutorial = gameObject.GetComponent<tutorialStart>();

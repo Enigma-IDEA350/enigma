@@ -70,7 +70,6 @@ public class TutorialVerifierTwo : MonoBehaviour
         {
             if (correctEntries.CorrectNumIf)
             {
-                Debug.Log("This Jawn Worked");
                 ifMade = false;
                 enabled = false;
                 cycle.allowNext();

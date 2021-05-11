@@ -20,9 +20,6 @@ public abstract class AbstractBlock : MonoBehaviour
 
     public AbstractBlock GetMyParent()
     {
-        if (myParent == null)
-        { //Debug.Log("i have no parent"); }
-        }
         return myParent;
     }
 

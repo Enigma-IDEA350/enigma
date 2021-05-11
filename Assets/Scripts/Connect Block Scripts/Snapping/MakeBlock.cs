@@ -30,30 +30,34 @@ public class MakeBlock : MonoBehaviour
 
         if (!tooManyBlocks && !onlyOne)
         {
+            Layer layer = FindObjectOfType<Layer>();
+
+
             SoundManager.PlaySound(SoundManager.Sound.BlockSnap);
             Vector3 center = GameObject.Find("Bounds").transform.position;
-            center.z = -(0.1f);
+            center.z = layer.GetCurrentZ();
+            layer.SetCurrentZ();
+
 
             GameObject newBlock = Instantiate(block, center, transform.rotation);
-
             newBlock.transform.parent = GameObject.Find("Current Blocks in Scene").transform;
-            int layer = newBlock.GetComponentInParent<Layer>().getCurrentLayer();
+
+            int layerInt = layer.GetCurrentLayer();
             SpriteRenderer blockRend = newBlock.GetComponent<SpriteRenderer>();
-            blockRend.sortingOrder = layer == 0 ? 0 : layer + 1;
+
+            blockRend.sortingOrder = layerInt == 0 ? 0 : layerInt + 1;
 
             if (newBlock.GetComponentsInChildren<Canvas>() != null || newBlock.GetComponentsInChildren<Canvas>().Length != 0)
             {
                 foreach (Canvas text in newBlock.GetComponentsInChildren<Canvas>())
                 {
-                    text.sortingOrder = layer + 2;
+                    text.sortingOrder = layerInt + 2;
                 }
-                newBlock.GetComponentInParent<Layer>().setCurrentLayer(layer + 2);
-                Debug.Log(newBlock.GetComponentInParent<Layer>().getCurrentLayer());
+                newBlock.GetComponentInParent<Layer>().SetCurrentLayer(layerInt + 2);
             }
             else
             {
-                newBlock.GetComponentInParent<Layer>().setCurrentLayer(layer + 1);
-                Debug.Log(newBlock.GetComponentInParent<Layer>().getCurrentLayer());
+                newBlock.GetComponentInParent<Layer>().SetCurrentLayer(layerInt + 1);
             }
         }
         else if (onlyOne)

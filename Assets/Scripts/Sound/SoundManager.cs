@@ -20,17 +20,12 @@ public static class SoundManager
 
     public static void PlayBackgroundMusic()
     {
-        bool soundExists = false;
-        AudioSource[] sounds = Object.FindObjectsOfType<AudioSource>();
-        foreach (AudioSource item in sounds)
+        if (GameObject.Find("Bg Music") == null)
         {
-            if (item.clip == GetAudioClip(Sound.LevelSelectionMusic) && !item.isPlaying) { item.Play(); soundExists = true; }
-        }
-        if (!soundExists)
-        {
-            GameObject soundGameObject = new GameObject("Background Music");
+            GameObject soundGameObject = new GameObject("Bg Music");
             AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
             audioSource.clip = GetAudioClip(Sound.LevelSelectionMusic);
+            audioSource.volume = .1f;
             audioSource.Play();
             Object.DontDestroyOnLoad(soundGameObject);
         }
@@ -48,7 +43,7 @@ public static class SoundManager
         {
             GameObject soundGameObject = new GameObject("Sound");
             AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-            audioSource.volume = .4f;
+            audioSource.volume = .7f;
             audioSource.clip = GetAudioClip(sound);
             audioSource.Play();
         }

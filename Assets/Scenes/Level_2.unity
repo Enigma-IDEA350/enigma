@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c59e9cae4874ee3bbdf803bad20755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlockErrors: 0
 --- !u!1 &1672824923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6291764763034224063, guid: 62d9e6a1a7335b34daed75755308dfc9,
@@ -1444,7 +1445,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119310396270405343, guid: 56e6b63b3cac54c48becddefd289110d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56e6b63b3cac54c48becddefd289110d, type: 3}
 --- !u!1001 &1864755345
 PrefabInstance:
@@ -1841,13 +1843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 876665205317317452}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!1 &876665205317317490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743b7c657cff244bcbf447a9566637ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLogic: {fileID: 208827175}
 --- !u!114 &876665205654145208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,8 +3651,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!4 &876665206504339122
@@ -3851,13 +3843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 876665206758985790}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!1 &876665206758985788
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,13 +4009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 876665206777247539}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!1 &876665206777247537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,8 +4735,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!4 &876665207181174553
@@ -5247,8 +5223,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!1 &2290776419496719785
@@ -5280,7 +5254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59479e54dc0f45d98e9b8fe0bba5495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerSound: {fileID: 0}
   correctAnswer: 0
   clicked: 0
   playButton: {fileID: 0}

@@ -9,7 +9,7 @@ using TMPro;
 public class ForEachBlock : AbstractMouthBlock
 {
     private Message_SO messageData;
-    
+
 
     public bool ReadblockExists { get => childHolder.CheckForReadBlock(); }
 
@@ -26,7 +26,6 @@ public class ForEachBlock : AbstractMouthBlock
         {
             if (start_field.text == "")
             {
-                Debug.Log("asdf");
                 return 0;
             }
             else { return int.Parse(start_field.text); }
@@ -57,14 +56,14 @@ public class ForEachBlock : AbstractMouthBlock
 
     public string Map(string input)
     {
-        
-        int left = Mathf.Max(Mathf.Min(_start-1, _end-1),0);
-        int right = Mathf.Min(Mathf.Max(_start-1, _end-1)+1, input.Length-1);
+
+        int left = Mathf.Max(Mathf.Min(_start - 1, _end - 1), 0);
+        int right = Mathf.Min(Mathf.Max(_start - 1, _end - 1) + 1, input.Length - 1);
 
         int numSpaces = 0;
-  
-        char[] tempCharList = input.ToCharArray(left, (right-left));
-        foreach(char letter in tempCharList)
+
+        char[] tempCharList = input.ToCharArray(left, (right - left));
+        foreach (char letter in tempCharList)
         {
             if (letter == char.Parse(" "))
             {
@@ -72,11 +71,7 @@ public class ForEachBlock : AbstractMouthBlock
             }
         }
 
-        tempCharList = input.ToCharArray(left, Mathf.Min(right+1 + numSpaces - left-1,input.Length - left));
-        Debug.Log(tempCharList.Length);
-        Debug.Log(numSpaces);
-        Debug.Log(tempCharList);
-
+        tempCharList = input.ToCharArray(left, Mathf.Min(right + 1 + numSpaces - left - 1, input.Length - left));
         if (_reverse)
         {
             System.Array.Reverse(tempCharList);
@@ -92,11 +87,11 @@ public class ForEachBlock : AbstractMouthBlock
         }
 
         return new string(tempCharList);
-  
-      
+
+
     }
-    
-    
+
+
 
     public override string GetMyType()
     {

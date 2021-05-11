@@ -26,7 +26,6 @@ public class ChildHolder : MonoBehaviour
         }
         else
         {
-            Debug.Log("i am not in that list");
         }
     }
 
@@ -68,7 +67,7 @@ public class ChildHolder : MonoBehaviour
         }
         else
         {
-           
+
             return (ChildBlocks[ChildBlocks.Count - 1].GetMyType() == "ReadBlock");
         }
     }

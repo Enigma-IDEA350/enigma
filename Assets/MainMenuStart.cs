@@ -11,7 +11,7 @@ public class MainMenuStart : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.LaptopClicking);
         try
         {
-            Destroy(GameObject.Find("Background Music"));
+            Destroy(GameObject.Find("Bg Music"));
         }
         catch
         {

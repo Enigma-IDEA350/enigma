@@ -40,14 +40,13 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("paused");
         pauseMenu.SetActive(true);
         Time.timeScale = 0f; // stop all animations
         isPaused = true; // set global bool
         AudioListener.pause = true; // stop sounds
     }
 
-    public void ResumeGame() 
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -55,16 +54,14 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = false;
     }
 
-    public void LevelSelect() 
+    public void LevelSelect()
     {
-        Debug.Log("level selection");
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
 
-    public void MainMenu() 
+    public void MainMenu()
     {
-        Debug.Log("NEW__MAIN_MENU");
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

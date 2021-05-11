@@ -101,7 +101,6 @@ public class ChatBubble : MonoBehaviour
     {
         if (clicked)
         {
-            Debug.Log("Clicked");
             clicked = false;
         }
     }

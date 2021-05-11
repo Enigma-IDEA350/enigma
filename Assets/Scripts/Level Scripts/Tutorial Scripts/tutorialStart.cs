@@ -6,12 +6,8 @@ using TMPro;
 public class tutorialStart : MonoBehaviour
 {
     GameObject tutorialGroup;
-    bool chatBubble = false;
-
     TutorialOne tutorialOne;
     TutorialTwo tutorialTwo;
-
-    bool unChatBubble = false;
     next next;
     cycle cycle;
     Arrow arrow;

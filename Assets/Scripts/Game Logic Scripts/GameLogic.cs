@@ -37,8 +37,6 @@ public class GameLogic : MonoBehaviour
 
     private RunMachine _runMachine;
 
-    private bool _complete = false;
-
     public void Start()
     {
         transition = FindObjectOfType<Transition>();
@@ -52,7 +50,6 @@ public class GameLogic : MonoBehaviour
 
 
         //setting the maker blocks to on or off based on our scriptable object
-        blockButtonGreyout.ForeachOn(MessageData.ForOn);
         blockButtonGreyout.IfOn(MessageData.IfOn);
         blockButtonGreyout.SwitchOn(MessageData.SwitchOn);
         blockButtonGreyout.ShiftOn(MessageData.ShiftOn);
@@ -86,14 +83,9 @@ public class GameLogic : MonoBehaviour
                 levelState.BeatLevel(MessageData.CurrLevel);
                 if (Input.anyKey)
                 {
-                    Debug.Log(transition == null);
                     transition.LoadLevel("LevelSelection");
                 }
             }
-        }
-        else
-        {
-            _complete = false;
         }
     }
 
@@ -104,7 +96,6 @@ public class GameLogic : MonoBehaviour
         if (editOutputText)
         {
             _timer -= 0.1f;
-            Debug.Log(PotentialMessage == null);
             while (_charIndex < PotentialMessage.Length && _timer <= 0f)
             {
                 _timer += 0.5f;
@@ -126,7 +117,6 @@ public class GameLogic : MonoBehaviour
             }
             if (_charIndex == PotentialMessage.Length)
             {
-                _complete = true;
                 editOutputText = false;
                 _charIndex = 0;
             }

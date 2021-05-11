@@ -19,18 +19,14 @@ public class ConnectBlock : MonoBehaviour
     public void ConnectMeToBottom(AbstractBlock abstractBlock)
     {
         //we want the parent of the block we're connecting to
-        Debug.Log(abstractBlock.GetMyType());
 
         AbstractBlock newParent = abstractBlock.GetMyParent();
         ChildHolder newParentChildHolder = newParent.GetComponent<ChildHolder>();
         MyAbstractBlock.SetMyParent(newParent);
         newParentChildHolder.AddToList(MyAbstractBlock);
         Scale scale = newParent.GetComponent<Scale>();
-        if (scale == null) { Debug.Log("no scale"); }
-        else
-        {
-            scale.ScaleMe();
-        }
+        scale.ScaleMe();
+
     }
 
 

@@ -7,13 +7,9 @@ public class Arrow : MonoBehaviour
     Transform[] _listOfPositions;
     Vector3 _target;
     Vector3 _dirNormalized;
-    Vector3 _rotNormalized;
-    Vector3 _targetRot;
+    Quaternion _targetRot;
     float _speed;
     int _postion = 0;
-    bool _arrow = false;
-    bool _unArrow = false;
-    float _fadeSpeed;
     Utils _utils = new Utils();
 
     public void Show()
@@ -32,41 +28,15 @@ public class Arrow : MonoBehaviour
         lst.AddRange(_listOfPositions);
         lst.Remove(GameObject.Find("Tutorial Positions").transform);
         _listOfPositions = lst.ToArray();
+        _targetRot.eulerAngles = _listOfPositions[0].eulerAngles;
         transform.position = _listOfPositions[0].position;
+        transform.rotation = _targetRot;
     }
-
-    public void StartArrowAt(int index)
-    {
-        transform.position = _listOfPositions[index].position;
-    }
-
     public void NextArrow()
     {
-        if (_postion + 1 < _listOfPositions.Length)
-        {
-            _postion += 1;
-            _target = _listOfPositions[_postion].position;
-            _targetRot = _listOfPositions[_postion].forward;
-            _dirNormalized = (_target - transform.position).normalized;
-            _rotNormalized = (_targetRot - transform.forward).normalized;
-            _speed = 2 * Time.deltaTime;
-            enabled = true;
-        }
-    }
-
-    void Update()
-    {
-        if (Vector2.Distance(_target, transform.position) <= .1f && Vector2.Distance(_targetRot, transform.forward) <= .1f)
-        {
-            enabled = false;
-        }
-        if (Vector2.Distance(_target, transform.position) > .1f)
-        {
-            transform.position = transform.position + _dirNormalized * _speed;
-        }
-        if (Vector2.Distance(_targetRot, transform.forward) > .1f)
-        {
-            transform.forward += _rotNormalized * _speed;
-        }
+        _postion += 1;
+        _targetRot.eulerAngles = _listOfPositions[_postion].eulerAngles;
+        transform.rotation = _targetRot;
+        transform.position = _listOfPositions[_postion].localPosition;
     }
 }

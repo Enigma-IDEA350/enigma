@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="DecodeState",menuName ="DecodeState_menu")]
+[CreateAssetMenu(fileName = "DecodeState", menuName = "DecodeState_menu")]
 public class Message_SO : ScriptableObject
 {
     // Start is called before the first frame update
@@ -10,7 +10,7 @@ public class Message_SO : ScriptableObject
 
     public string Code;
     public string CorrectText;
-    public string Decode_Attempt { get => decodeAttemptBacking; set { Debug.Log(value); decodeAttemptBacking = value; } }
+    public string Decode_Attempt { get => decodeAttemptBacking; set { decodeAttemptBacking = value; } }
 
     [SerializeField]
     private string decodeAttemptBacking;

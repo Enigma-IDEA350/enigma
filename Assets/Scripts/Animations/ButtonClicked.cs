@@ -3,9 +3,6 @@
 public class ButtonClicked : MonoBehaviour
 {
     private Animator _animator;
-    private float _timer;
-    private bool _timerReached;
-    private bool _animated;
     private PlayButton _playButton;
     private GameLogic _gameLogic;
     private WireSocket _wireSocket;
@@ -14,9 +11,6 @@ public class ButtonClicked : MonoBehaviour
     void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
-        _timer = 0f;
-        _timerReached = false;
-        _animated = false;
         _playButton = FindObjectOfType<PlayButton>();
         _gameLogic = FindObjectOfType<GameLogic>();
         _wireSocket = FindObjectOfType<WireSocket>();

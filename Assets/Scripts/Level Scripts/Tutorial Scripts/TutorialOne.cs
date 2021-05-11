@@ -15,17 +15,7 @@ public class TutorialOne : MonoBehaviour
     tutorialStart tutorial;
 
 
-    public void init()
-    {
-        setDependencies();
-        next.setTranstion(forTranstiontion);
-        tutorialVerifier.verifyForMade();
-        cycle.blockNext("Click on the FOR block");
-        arrow.StartArrowAt(position);
-        arrow.Show();
-        utils.ActiveFor(true);
-        cycle.runStartGroup();
-    }
+
 
     void setDependencies()
     {
@@ -38,6 +28,27 @@ public class TutorialOne : MonoBehaviour
         tutorial = gameObject.GetComponent<tutorialStart>();
         utils = new Utils();
     }
+    public void init()
+    {
+        setDependencies();
+        arrow.Show();
+        next.setTranstion(playButton);
+    }
+
+    void playButton()
+    {
+        arrow.NextArrow();
+        next.setTranstion(blockStart);
+    }
+
+    void blockStart()
+    {
+        arrow.NextArrow();
+        next.setTranstion(forTranstiontion);
+        tutorialVerifier.verifyForMade();
+        cycle.blockNext("Click on the FOR block");
+        utils.ActiveFor(true);
+    }
     void forTranstiontion()
     {
         next.setTranstion(forInputTransition);
@@ -45,7 +56,7 @@ public class TutorialOne : MonoBehaviour
 
     void forInputTransition()
     {
-        cycle.blockNext("Put 1 and 8 into the FOR block");
+        cycle.blockNext("Put 1 and 6 into the FOR block");
         tutorialVerifier.verifyForInput();
         next.setTranstion(shiftTranstion);
     }

@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 4987814006198602760}
   - component: {fileID: 4987814006198602761}
   - component: {fileID: 982537894479605338}
+  - component: {fileID: 7671948394306376559}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -317,12 +318,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995525d5ecb6d4d39a32576467448ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelState: {fileID: 0}
+  errorHandler: {fileID: 0}
   InputField: {fileID: 0}
   OutputField: {fileID: 0}
   MessageData: {fileID: 11400000, guid: 9b7b781f601154663929e1b05a47b1ad, type: 2}
-  CorrectDecode: 0
-  wonAndWaited: 0
   Button: 0
+  editOutputText: 0
+  letters: 
 --- !u!114 &4987814006198602762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +401,19 @@ MonoBehaviour:
   CorrectShiftPlacement: 0
   CorrectReadPlacement: 0
   errorHandler: {fileID: 0}
+--- !u!114 &7671948394306376559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987814006198602757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c59e9cae4874ee3bbdf803bad20755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockErrors: 0
 --- !u!1001 &19869447313073480
 PrefabInstance:
   m_ObjectHideFlags: 0

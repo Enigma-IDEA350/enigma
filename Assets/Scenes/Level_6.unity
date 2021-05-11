@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -255,8 +255,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!1 &91409859
@@ -324,8 +322,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!1 &162042568
@@ -732,13 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 216176923}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!95 &216176923
 Animator:
   serializedVersion: 3
@@ -935,13 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 346110595}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!95 &346110595
 Animator:
   serializedVersion: 3
@@ -1029,12 +1011,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4022330037278212544, guid: 56e6b63b3cac54c48becddefd289110d,
     type: 3}
   m_PrefabInstance: {fileID: 1853098743}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &439073253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6291764761939756977, guid: 62d9e6a1a7335b34daed75755308dfc9,
-    type: 3}
-  m_PrefabInstance: {fileID: 10348454}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &462323668 stripped
 Transform:
@@ -1240,7 +1216,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ForEachGrey
       value: 
-      objectReference: {fileID: 439073253}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c397572b295fed4b816665006bd9544, type: 3}
 --- !u!1 &610922852
@@ -1357,13 +1333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 806958979}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!95 &806958979
 Animator:
   serializedVersion: 3
@@ -1916,13 +1885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ceafae6e04afa9a4857503aaabac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 1299834805}
-  timer: 0
-  timerReached: 0
-  animated: 0
-  playButton: {fileID: 0}
-  gameLogic: {fileID: 0}
-  wireSocket: {fileID: 0}
 --- !u!95 &1299834805
 Animator:
   serializedVersion: 3
@@ -2070,8 +2032,6 @@ MonoBehaviour:
   tutorialPurple: 0
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!1 &1672824923 stripped
@@ -2535,8 +2495,6 @@ MonoBehaviour:
   tutorialPurple: 1
   yellowWire2: 0
   redWire2: 0
-  spark: {fileID: 0}
-  plugged: {fileID: 0}
   playButton: {fileID: 0}
   gameLogic: {fileID: 0}
 --- !u!1 &1958631224 stripped
@@ -3225,7 +3183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743b7c657cff244bcbf447a9566637ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLogic: {fileID: 208827175}
 --- !u!114 &876665205654145208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5570,7 +5527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59479e54dc0f45d98e9b8fe0bba5495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerSound: {fileID: 0}
   correctAnswer: 0
   clicked: 0
   playButton: {fileID: 0}

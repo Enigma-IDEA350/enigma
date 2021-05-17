@@ -14,7 +14,7 @@ public class OnStart : MonoBehaviour
         _levelInfo = _gameLogic.MessageData;
         List<int> tutorialLevels = new List<int> { 1, 4 };
         _tutorial = gameObject.GetComponent<tutorialStart>();
-        SoundManager.ComputerBoot();
+        StartCoroutine(SoundManager.ComputerBoot());
 
         if (tutorialLevels.Contains(_levelInfo.CurrLevel))
         {

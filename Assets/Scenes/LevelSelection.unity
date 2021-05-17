@@ -1702,7 +1702,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -1844,7 +1844,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -2980,7 +2980,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -3042,7 +3042,6 @@ GameObject:
   - component: {fileID: 1036505328}
   - component: {fileID: 1036505327}
   - component: {fileID: 1036505331}
-  - component: {fileID: 1036505332}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3159,18 +3158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54d29b6eaecb3a42bda35937a08d3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1036505332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036505326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c56248d5fa34a0a9df79369518f9d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1041372684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,10 +3206,10 @@ MonoBehaviour:
   tutorial1: {fileID: 2113568758}
   level2: {fileID: 1034772959}
   level3: {fileID: 1757593287}
-  tutorial4: {fileID: 907659691}
+  tutorial4: {fileID: 1496185557}
   level5: {fileID: 703711353}
   level6: {fileID: 2057618539}
-  level7: {fileID: 2013005161}
+  level7: {fileID: 1594511902}
   level8: {fileID: 1764625358}
   level9: {fileID: 683217436}
   level3Unlocked: 0
@@ -4750,7 +4737,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -5198,7 +5185,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -5840,7 +5827,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -6111,7 +6098,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -6910,7 +6897,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
@@ -7277,7 +7264,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1036505332}
+      - m_Target: {fileID: 0}
         m_MethodName: MakeSound
         m_Mode: 1
         m_Arguments:
